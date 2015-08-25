@@ -14,7 +14,8 @@
 		186F834E1B8D1839006FF1CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186F834D1B8D1839006FF1CD /* Images.xcassets */; };
 		186F83511B8D1839006FF1CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F834F1B8D1839006FF1CD /* LaunchScreen.xib */; };
 		186F835D1B8D1839006FF1CD /* FXAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F835C1B8D1839006FF1CD /* FXAlertViewTests.m */; };
-		186F83681B8D1858006FF1CD /* FXAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83671B8D1858006FF1CD /* FXAlertViewController.m */; };
+		186F83681B8D1858006FF1CD /* FXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83671B8D1858006FF1CD /* FXAlertView.m */; };
+		186F836C1B8D2526006FF1CD /* FXAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F836B1B8D2526006FF1CD /* FXAlertButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +42,10 @@
 		186F83561B8D1839006FF1CD /* FXAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FXAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		186F835B1B8D1839006FF1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		186F835C1B8D1839006FF1CD /* FXAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXAlertViewTests.m; sourceTree = "<group>"; };
-		186F83661B8D1858006FF1CD /* FXAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertViewController.h; sourceTree = "<group>"; };
-		186F83671B8D1858006FF1CD /* FXAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertViewController.m; sourceTree = "<group>"; };
+		186F83661B8D1858006FF1CD /* FXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertView.h; sourceTree = "<group>"; };
+		186F83671B8D1858006FF1CD /* FXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertView.m; sourceTree = "<group>"; };
+		186F836A1B8D2526006FF1CD /* FXAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertButton.h; sourceTree = "<group>"; };
+		186F836B1B8D2526006FF1CD /* FXAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +91,7 @@
 				186F83451B8D1839006FF1CD /* AppDelegate.m */,
 				186F83471B8D1839006FF1CD /* ViewController.h */,
 				186F83481B8D1839006FF1CD /* ViewController.m */,
-				186F83691B8D1B80006FF1CD /* FXAlertViewController */,
+				186F83691B8D1B80006FF1CD /* FXAlertView */,
 				186F834A1B8D1839006FF1CD /* Main.storyboard */,
 				186F834D1B8D1839006FF1CD /* Images.xcassets */,
 				186F834F1B8D1839006FF1CD /* LaunchScreen.xib */,
@@ -123,13 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		186F83691B8D1B80006FF1CD /* FXAlertViewController */ = {
+		186F83691B8D1B80006FF1CD /* FXAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				186F83661B8D1858006FF1CD /* FXAlertViewController.h */,
-				186F83671B8D1858006FF1CD /* FXAlertViewController.m */,
+				186F83661B8D1858006FF1CD /* FXAlertView.h */,
+				186F83671B8D1858006FF1CD /* FXAlertView.m */,
+				186F836D1B8D257C006FF1CD /* FXAlertButton */,
 			);
-			name = FXAlertViewController;
+			name = FXAlertView;
+			sourceTree = "<group>";
+		};
+		186F836D1B8D257C006FF1CD /* FXAlertButton */ = {
+			isa = PBXGroup;
+			children = (
+				186F836A1B8D2526006FF1CD /* FXAlertButton.h */,
+				186F836B1B8D2526006FF1CD /* FXAlertButton.m */,
+			);
+			name = FXAlertButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +248,8 @@
 				186F83491B8D1839006FF1CD /* ViewController.m in Sources */,
 				186F83461B8D1839006FF1CD /* AppDelegate.m in Sources */,
 				186F83431B8D1839006FF1CD /* main.m in Sources */,
-				186F83681B8D1858006FF1CD /* FXAlertViewController.m in Sources */,
+				186F836C1B8D2526006FF1CD /* FXAlertButton.m in Sources */,
+				186F83681B8D1858006FF1CD /* FXAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +444,7 @@
 				186F83621B8D1839006FF1CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		186F83631B8D1839006FF1CD /* Build configuration list for PBXNativeTarget "FXAlertViewTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +453,7 @@
 				186F83651B8D1839006FF1CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

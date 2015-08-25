@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "FXAlertViewController.h"
+#import "FXAlertView.h"
 @interface ViewController ()
 
 @end
@@ -21,13 +21,8 @@
 
 
 - (void) present {
-    FXAlertViewController *c = [[FXAlertViewController alloc] initWithTitle:@"test" message:@"This is a test"];
+    FXAlertView *c = [[FXAlertView alloc] initWithTitle:@"test" message:@"This is a test, of a test, of a test of a test, of a test, of a test."];
     [self presentViewController:c animated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

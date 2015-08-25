@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FXAlertViewController : UIViewController
+@interface FXAlertView : UIViewController
 
 /**
  Initialises a new instance with a title
@@ -25,10 +25,19 @@
 /**
  Sets the color of the alertView.
  
- The default colour of the alertView is
-    RGB: --
-    HEX: --
+ The default colour of the alertView is white. ([UIColor whiteColor])
+    RGB: 255-255-255
+    HEX: FFFFFF
  */
 @property (strong, nonatomic) UIColor *defaultColour;
 
+
+/**
+ Calling this method will cause the receiver
+ to be presented to the view hierarchy.
+ 
+ The presentation is animated and 
+ will be added to the rootViewController.
+ */
+- (void) present;
 @end
