@@ -108,6 +108,8 @@ const NSString *cancelButtonKey = @"cancelButton";
 
 - (void) layoutButtons {
     
+    
+    
     // We have both a cancel and stadnard button to layout.
     if(self.buttons[standardButtonKey] && self.buttons[cancelButtonKey]) {
         
@@ -135,11 +137,6 @@ const NSString *cancelButtonKey = @"cancelButton";
         button.frame = [self singleButtonRect];
         [self.alertView addSubview: button];
         
-    }
-    
-    
-    for(UIView* view in self.view.subviews) {
-        NSLog(@"%@", view);
     }
 }
 

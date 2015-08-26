@@ -17,7 +17,13 @@
         
         _type = type;
         
-        self.backgroundColor = [UIColor greenColor];
+        if(_type == FXAlertButtonTypeStandard) {
+            self.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+        }
+        else if (_type == FXAlertButtonTypeCancel) {
+            self.backgroundColor = [UIColor colorWithRed:0.125 green:0.784 blue:0.392 alpha:1.0];
+        }
+
         [self.titleLabel setFont:[UIFont fontWithName:@"Avenir Next" size:18]];
         
         
