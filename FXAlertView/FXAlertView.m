@@ -78,9 +78,8 @@ const NSString *cancelButtonKey = @"cancelButton";
         _alertMessageTextView.editable = NO;
         _alertMessageTextView.textAlignment = NSTextAlignmentCenter;
         _alertMessageTextView.showsVerticalScrollIndicator = NO;
-
         _alertMessageTextView.textColor = [UIColor grayColor];
-        [_alertMessageTextView sizeToFit];
+        [self sizeAlertMessage];
         [_alertView addSubview:_alertMessageTextView];
         
         // Size the alert with the given subview.
@@ -91,6 +90,18 @@ const NSString *cancelButtonKey = @"cancelButton";
     }
     return self;
 }
+
+
+// Correctly sizes the height of the alertMessageView
+// without changing its width.
+- (void) sizeAlertMessage {
+    [self.alertMessageTextView sizeToFit];
+    self.alertMessageTextView.frame = CGRectMake(self.alertMessageTextView.frame.origin.x,
+                                                 self.alertMessageTextView.frame.origin.y,
+                                                 self.alertView.frame.size.width,
+                                                 self.alertMessageTextView.frame.size.height);
+}
+
 
 // Sizes the alerts based on the alertTitle, alertMessageTextView and
 // the buttons on the alert.

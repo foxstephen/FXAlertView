@@ -23,7 +23,7 @@
 
 - (void) present {
     
-    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"WARNING!" message:@"Erorororororororo"];
+    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"WARNING!" message:@"This is an error message."];
     
     [self presentViewController:fxAlertView animated:YES completion:nil];
     
