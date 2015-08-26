@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "FXAlertView.h"
+#import "FXAlert.h"
+
 @interface ViewController ()
 
 @end
@@ -21,8 +22,19 @@
 
 
 - (void) present {
-    FXAlertView *c = [[FXAlertView alloc] initWithTitle:@"test" message:@"This is a test, of a test, of a test of a test, of a test, of a test."];
-    [self presentViewController:c animated:YES completion:nil];
+    
+    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"test" message:@"This is a test, of a test, of a test of a test, of a test, of a test."];
+    [self presentViewController:fxAlertView animated:YES completion:nil];
+    
+    FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
+    [standardButton setTitle:@"Okay" forState:UIControlStateNormal];
+    [fxAlertView addButton:standardButton];
+    
+    FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [fxAlertView addButton:cancelButton];
+    
+
 }
 
 @end

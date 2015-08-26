@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FXAlertButton.h"
 
 @interface FXAlertView : UIViewController
 
@@ -30,6 +31,10 @@
     HEX: FFFFFF
  */
 @property (strong, nonatomic) UIColor *defaultColour;
+
+
+
+- (void) addButton:(FXAlertButton *) button;
 
 
 /**

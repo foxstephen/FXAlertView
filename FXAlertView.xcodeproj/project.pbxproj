@@ -46,6 +46,7 @@
 		186F83671B8D1858006FF1CD /* FXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertView.m; sourceTree = "<group>"; };
 		186F836A1B8D2526006FF1CD /* FXAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertButton.h; sourceTree = "<group>"; };
 		186F836B1B8D2526006FF1CD /* FXAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertButton.m; sourceTree = "<group>"; };
+		186F836E1B8D2E10006FF1CD /* FXAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXAlert.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 				186F83451B8D1839006FF1CD /* AppDelegate.m */,
 				186F83471B8D1839006FF1CD /* ViewController.h */,
 				186F83481B8D1839006FF1CD /* ViewController.m */,
+				186F836E1B8D2E10006FF1CD /* FXAlert.h */,
 				186F83691B8D1B80006FF1CD /* FXAlertView */,
 				186F834A1B8D1839006FF1CD /* Main.storyboard */,
 				186F834D1B8D1839006FF1CD /* Images.xcassets */,

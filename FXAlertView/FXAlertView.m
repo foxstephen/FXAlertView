@@ -8,18 +8,28 @@
 
 #import "FXAlertView.h"
 
+
 @interface FXAlertView () {
     CGFloat screenWidth;
     CGFloat screenHeight;
+    NSUInteger numberOfButtons;
 }
 
 @property (strong, nonatomic) UIView *alertView;
 @property (strong, nonatomic) UILabel *alertTitle;
 @property (strong, nonatomic) UITextView *alertMessageTextView;
+@property (strong, nonatomic) NSMutableDictionary *buttons;
+
+@property (nonatomic, readonly) CGRect singleButtonRect; // Used if theres only one button on the view.
+@property (nonatomic, readonly) CGRect standardButtonRect; // Used if there's two buttons added to the view.
+@property (nonatomic, readonly) CGRect cancelButtonRect; // Used if there's two buttons added to the view.
 
 @end
 
 @implementation FXAlertView
+
+const NSString *standardButtonKey = @"standardButton";
+const NSString *cancelButtonKey = @"cancelButton";
 
 #pragma mark Object Life Cycle.
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message {
@@ -58,6 +68,8 @@
                                                                              _alertView.frame.size.height - _alertTitle.frame.size.height)];
         [_alertMessageTextView setFont: [UIFont fontWithName:@"Avenir Next" size:25]];
         _alertMessageTextView.text = message;
+        _alertMessageTextView.selectable = NO;
+        _alertMessageTextView.editable = NO;
         _alertMessageTextView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1.0];
         _alertMessageTextView.textAlignment = NSTextAlignmentLeft;
         _alertMessageTextView.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 0);
@@ -72,6 +84,89 @@
 
 - (void) present {
     
+}
+
+
+- (void) addButton:(FXAlertButton*) button {
+
+    if(!self.buttons) {
+        self.buttons = [[NSMutableDictionary alloc] initWithCapacity:2];
+    }
+    
+    if (button.type == FXAlertButtonTypeStandard) {
+        [self.buttons setObject:button forKey:standardButtonKey];
+        [self layoutButtons];
+    }
+    else if (button.type == FXAlertButtonTypeCancel) {
+        [self.buttons setObject:button forKey:cancelButtonKey];
+        [self layoutButtons];
+    }
+    
+    
+}
+
+
+- (void) layoutButtons {
+    
+    // We have both a cancel and stadnard button to layout.
+    if(self.buttons[standardButtonKey] && self.buttons[cancelButtonKey]) {
+        
+        FXAlertButton *standardButton = self.buttons[standardButtonKey];
+        standardButton.frame = [self standardButtonRect];
+        
+        FXAlertButton *cancelButton = self.buttons[cancelButtonKey];
+        cancelButton.frame = [self cancelButtonRect];
+        
+        [self.alertView addSubview:standardButton];
+        [self.alertView addSubview:cancelButton];
+        
+    }
+    else if (self.buttons[standardButtonKey]) { // Standard button on its own
+        
+        FXAlertButton *button = self.buttons[standardButtonKey];
+        button.frame = [self singleButtonRect];
+        
+        [self.alertView addSubview: button];
+        
+    }
+    else if(self.buttons[cancelButtonKey]) { // Cancel button on its own.
+        
+        FXAlertButton *button = self.buttons[cancelButtonKey];
+        button.frame = [self singleButtonRect];
+        [self.alertView addSubview: button];
+        
+    }
+    
+    
+    for(UIView* view in self.view.subviews) {
+        NSLog(@"%@", view);
+    }
+}
+
+
+#pragma mark Rects for each kind of button.
+- (CGRect)singleButtonRect {
+    
+    CGFloat buttonWidth = self.alertView.frame.size.width;
+    CGFloat buttonHeight = self.alertView.frame.size.height * 0.2;
+    
+    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+}
+
+- (CGRect)standardButtonRect {
+
+    CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
+    CGFloat buttonHeight = self.alertView.frame.size.height * 0.2;
+    
+    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+}
+
+
+- (CGRect)cancelButtonRect {
+    CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
+    CGFloat buttonHeight = self.alertView.frame.size.height * 0.2;
+    
+    return CGRectMake(self.alertView.frame.size.width * 0.5, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
 
 
