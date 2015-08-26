@@ -31,6 +31,7 @@
 const NSString *standardButtonKey = @"standardButton";
 const NSString *cancelButtonKey = @"cancelButton";
 
+
 #pragma mark Object Life Cycle.
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message {
     
@@ -99,11 +100,32 @@ const NSString *cancelButtonKey = @"cancelButton";
     }
     
     if (button.type == FXAlertButtonTypeStandard) {
+        
+        // If there's already a button added, delete
+        // it and add the new button we want to add.
+        if (self.buttons[standardButtonKey]) {
+
+            FXAlertButton *button = self.buttons[standardButtonKey];
+            button = nil;
+        }
+        
+        // Add the new button.
         [self.buttons setObject:button forKey:standardButtonKey];
+        
         [self layoutButtons];
     }
     else if (button.type == FXAlertButtonTypeCancel) {
+        
+        // If there's already a button added, delete
+        // it and add the new button we want to add.
+        if (self.buttons[cancelButtonKey]) {
+            FXAlertButton *button = self.buttons[cancelButtonKey];
+            button = nil;
+        }
+        
+        // Add the new button.
         [self.buttons setObject:button forKey:cancelButtonKey];
+        
         [self layoutButtons];
     }
     

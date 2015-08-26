@@ -23,6 +23,9 @@
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message;
 
 
+
+
+
 /**
  Sets the color of the alertView.
  
@@ -34,7 +37,26 @@
 
 
 
+
+
+/**
+ Adds a button to the receiver. The sizing and positioning of the buttons
+ is handled internally by the FXAlertView class.
+ 
+ Each instance of FXAlertView can only have two buttons at a time.
+ A "Standard" button (left side) and a "Cancel" button (right side).
+
+ - If there is one button on the view it will take up the whole
+   width of the alert. 
+ - If there is two buttons on the view, they will each share half the width
+   of the FXAlertView instance.
+ 
+ @param button An instance of FXAlertButton.
+ */
 - (void) addButton:(FXAlertButton *) button;
+
+
+
 
 
 /**

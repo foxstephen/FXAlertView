@@ -34,8 +34,6 @@
     [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     [fxAlertView addButton:cancelButton];
     
-    
-
 }
 
 @end
