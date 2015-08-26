@@ -13,7 +13,7 @@
 
 #pragma mark Object Life Cycle.
 - (instancetype) initWithType:(FXAlertButtonType) type {
-    if(self = [super init]) {
+    if (self = [super init]) {
         
         _type = type;
         
@@ -22,6 +22,7 @@
         }
         else if (_type == FXAlertButtonTypeCancel) {
             self.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
+//            self.backgroundColor = [UIColor colorWithRed:0.886 green:0.215 blue:0.215 alpha:1.0];
             
         }
 

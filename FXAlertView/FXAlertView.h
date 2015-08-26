@@ -30,7 +30,7 @@
  Sets the color of the alertView.
  
  The default colour of the alertView is white. ([UIColor whiteColor])
-    RGB: 255-255-255
+    RGB: 255255255
     HEX: FFFFFF
  */
 @property (strong, nonatomic) UIColor *defaultColour;

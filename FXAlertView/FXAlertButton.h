@@ -16,10 +16,17 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
 @interface FXAlertButton : UIButton
 
 
+/**
+ The button type of an instance.
+ */
 @property (nonatomic, readonly) FXAlertButtonType type;
 
 
-
+/**
+ Creates a new instance of FXAlertButton.
+ 
+ @param type The type of button to create.
+ */
 - (instancetype) initWithType:(FXAlertButtonType) type;
 
 

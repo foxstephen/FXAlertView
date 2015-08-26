@@ -9,10 +9,10 @@
 #import "FXAlertView.h"
 
 
-@interface FXAlertView () {
+@interface FXAlertView () <UIViewControllerTransitioningDelegate>{
     CGFloat screenWidth;
     CGFloat screenHeight;
-    NSUInteger numberOfButtons;
+    CGFloat buttonPadding;
 }
 
 @property (strong, nonatomic) UIView *alertView;
@@ -37,11 +37,11 @@ const NSString *cancelButtonKey = @"cancelButton";
     
     if(self = [super init]) {
         
-
+        self.modalTransitionStyle = UIModalPresentationCustom;
+        self.transitioningDelegate = self;
+        
         screenWidth = [[UIScreen mainScreen] bounds].size.width;
         screenHeight = [[UIScreen mainScreen] bounds].size.height;
-        
-        
         
         _defaultColour = [UIColor whiteColor];
         
@@ -66,6 +66,7 @@ const NSString *cancelButtonKey = @"cancelButton";
         [_alertView addSubview:_alertTitle];
         
         
+
         _alertMessageTextView = [[UITextView alloc] initWithFrame:CGRectMake(0,
                                                                              _alertView.frame.size.height * 0.2,
                                                                              _alertView.frame.size.width,
@@ -74,12 +75,22 @@ const NSString *cancelButtonKey = @"cancelButton";
         _alertMessageTextView.text = message;
         _alertMessageTextView.selectable = NO;
         _alertMessageTextView.editable = NO;
-        _alertMessageTextView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1.0];
-        _alertMessageTextView.textAlignment = NSTextAlignmentLeft;
-        _alertMessageTextView.textContainerInset = UIEdgeInsetsMake(0, 10, 0, 0);
-        _alertMessageTextView.textColor = [UIColor whiteColor];
+        _alertMessageTextView.textAlignment = NSTextAlignmentCenter;
 
+        _alertMessageTextView.textColor = [UIColor grayColor];
+        [_alertMessageTextView sizeToFit];
         [_alertView addSubview:_alertMessageTextView];
+        
+        
+        buttonPadding = _alertView.frame.size.height * 0.2;
+        CGFloat totalAlertViewHeight = _alertTitle.frame.size.height + _alertMessageTextView.frame.size.height + buttonPadding;
+        
+        // Resize the alert depending on its message contents.
+        _alertView.frame = CGRectMake(_alertView.frame.origin.x, _alertView.frame.origin.y, _alertView.frame.size.width, totalAlertViewHeight);
+        
+
+
+        
         
     }
     return self;
@@ -101,25 +112,27 @@ const NSString *cancelButtonKey = @"cancelButton";
     
     if (button.type == FXAlertButtonTypeStandard) {
         
-        // If there's already a button added, delete
-        // it and add the new button we want to add.
+        // If there's already a "standard button" added, remove it
+        // from superView and set to nil.
         if (self.buttons[standardButtonKey]) {
 
             FXAlertButton *button = self.buttons[standardButtonKey];
+            [button removeFromSuperview];
             button = nil;
         }
         
         // Add the new button.
         [self.buttons setObject:button forKey:standardButtonKey];
-        
+
         [self layoutButtons];
     }
     else if (button.type == FXAlertButtonTypeCancel) {
         
-        // If there's already a button added, delete
-        // it and add the new button we want to add.
+        // If there's already a "cancel button" added, remove it
+        // from superView and set to nil.
         if (self.buttons[cancelButtonKey]) {
             FXAlertButton *button = self.buttons[cancelButtonKey];
+            [button removeFromSuperview];
             button = nil;
         }
         
@@ -133,10 +146,15 @@ const NSString *cancelButtonKey = @"cancelButton";
 }
 
 
+
+
+
+
+
 - (void) layoutButtons {
     
     
-// We have both a cancel and stadnard button to layout.
+    // We have both a cancel and stadnard button to layout.
     if(self.buttons[standardButtonKey] && self.buttons[cancelButtonKey]) {
         
         FXAlertButton *standardButton = self.buttons[standardButtonKey];
@@ -149,7 +167,7 @@ const NSString *cancelButtonKey = @"cancelButton";
         [self.alertView addSubview:cancelButton];
         
     }
-    else if (self.buttons[standardButtonKey]) { // Standard button on its own
+    else if (self.buttons[standardButtonKey]) { /* Standard button on its own */
         
         FXAlertButton *button = self.buttons[standardButtonKey];
         button.frame = [self singleButtonRect];
@@ -157,7 +175,7 @@ const NSString *cancelButtonKey = @"cancelButton";
         [self.alertView addSubview: button];
         
     }
-    else if(self.buttons[cancelButtonKey]) { // Cancel button on its own.
+    else if(self.buttons[cancelButtonKey]) { /* Cancel button on its own.*/
         
         FXAlertButton *button = self.buttons[cancelButtonKey];
         button.frame = [self singleButtonRect];
@@ -171,7 +189,7 @@ const NSString *cancelButtonKey = @"cancelButton";
 - (CGRect)singleButtonRect {
     
     CGFloat buttonWidth = self.alertView.frame.size.width;
-    CGFloat buttonHeight = self.alertView.frame.size.height * 0.2;
+    CGFloat buttonHeight = buttonPadding;
     
     return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
@@ -179,7 +197,7 @@ const NSString *cancelButtonKey = @"cancelButton";
 - (CGRect)standardButtonRect {
 
     CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
-    CGFloat buttonHeight = self.alertView.frame.size.height * 0.2;
+    CGFloat buttonHeight = buttonPadding;
     
     return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
@@ -187,10 +205,11 @@ const NSString *cancelButtonKey = @"cancelButton";
 
 - (CGRect)cancelButtonRect {
     CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
-    CGFloat buttonHeight = self.alertView.frame.size.height * 0.2;
+    CGFloat buttonHeight = buttonPadding;
     
     return CGRectMake(self.alertView.frame.size.width * 0.5, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
+
 
 
 @end
