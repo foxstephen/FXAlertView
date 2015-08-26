@@ -23,7 +23,7 @@
 
 - (void) present {
     
-    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"test" message:@"This is a test, of a test, of a test of a test, of a test, of a test."];
+    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"Ooops" message:@"This is an alert, you have been alerted, This is an alert, you have been alerted, This is an alert, you have been alerted. This is an alert, you have been alerted."];
     [self presentViewController:fxAlertView animated:YES completion:nil];
     
     FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
@@ -33,6 +33,7 @@
     FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
     [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     [fxAlertView addButton:cancelButton];
+    
     
 
 }

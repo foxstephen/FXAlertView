@@ -36,14 +36,17 @@ const NSString *cancelButtonKey = @"cancelButton";
     
     if(self = [super init]) {
         
+
         screenWidth = [[UIScreen mainScreen] bounds].size.width;
         screenHeight = [[UIScreen mainScreen] bounds].size.height;
+        
+        
         
         _defaultColour = [UIColor whiteColor];
         
         self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         
-        _alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth * 0.8, 300)];
+        _alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth * 0.8, screenHeight * 0.52)];
         _alertView.layer.masksToBounds = YES;
         _alertView.layer.cornerRadius = 4.0;
         _alertView.backgroundColor = _defaultColour;
@@ -65,7 +68,7 @@ const NSString *cancelButtonKey = @"cancelButton";
         _alertMessageTextView = [[UITextView alloc] initWithFrame:CGRectMake(0,
                                                                              _alertView.frame.size.height * 0.2,
                                                                              _alertView.frame.size.width,
-                                                                             _alertView.frame.size.height - _alertTitle.frame.size.height)];
+                                                                             _alertView.frame.size.height - _alertTitle.frame.size.height * 2)];
         [_alertMessageTextView setFont: [UIFont fontWithName:@"Avenir Next" size:25]];
         _alertMessageTextView.text = message;
         _alertMessageTextView.selectable = NO;
@@ -87,6 +90,8 @@ const NSString *cancelButtonKey = @"cancelButton";
 }
 
 
+// TODO: If there is a button for a type already
+// added make sure there not added on top of each other.
 - (void) addButton:(FXAlertButton*) button {
 
     if(!self.buttons) {
@@ -109,8 +114,7 @@ const NSString *cancelButtonKey = @"cancelButton";
 - (void) layoutButtons {
     
     
-    
-    // We have both a cancel and stadnard button to layout.
+// We have both a cancel and stadnard button to layout.
     if(self.buttons[standardButtonKey] && self.buttons[cancelButtonKey]) {
         
         FXAlertButton *standardButton = self.buttons[standardButtonKey];
