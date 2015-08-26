@@ -36,14 +36,19 @@
 @property (strong, nonatomic) UIColor *defaultColour;
 
 
-
+/**
+ Set this property to change the font
+ of an instance, this will change the font for
+ all of its subviews.
+ */
+@property (strong, nonatomic) UIFont *font;
 
 
 /**
  Adds a button to the receiver. The sizing and positioning of the buttons
  is handled internally by the FXAlertView class.
  
- Each instance of FXAlertView can only have two buttons at a time.
+ Each instance of FXAlertView can only have a maximum of two buttons at a time.
  A "Standard" button (left side) and a "Cancel" button (right side).
 
  - If there is one button on the view it will take up the whole
