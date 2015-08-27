@@ -10,7 +10,11 @@
 #import "FXAlertButton.h"
 
 /**
- A custom alert view.
+ An alernative alert to the native iOS UIAlertController
+ and UIAlertView. This class alows for a title, message and a maximum,
+ of two buttons. Customise each button like you would any UIButton instance.
+ Use FXAlertController's custom method's to set the colour/ font
+ of message, title or each button.
  */
 @interface FXAlertController : UIViewController
 
@@ -27,6 +31,24 @@
  @return New instance
  */
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message;
+
+
+
+/**
+ Adds a button to the receiver. The sizing and positioning of the buttons
+ is handled internally by the FXAlertView class.
+ 
+ Each instance of FXAlertView can only have a maximum of two buttons at a time.
+ A "Standard" button (left side) and a "Cancel" button (right side).
+ 
+ - If there is one button on the view it will take up the whole
+ width of the alert.
+ - If there is two buttons on the view, they will each share half the width
+ of the FXAlertView instance.
+ 
+ @param button An instance of FXAlertButton.
+ */
+- (void) addButton:(FXAlertButton *) button;
 
 
 
@@ -82,21 +104,5 @@
 
 
 
-
-/**
- Adds a button to the receiver. The sizing and positioning of the buttons
- is handled internally by the FXAlertView class.
- 
- Each instance of FXAlertView can only have a maximum of two buttons at a time.
- A "Standard" button (left side) and a "Cancel" button (right side).
-
- - If there is one button on the view it will take up the whole
-   width of the alert. 
- - If there is two buttons on the view, they will each share half the width
-   of the FXAlertView instance.
- 
- @param button An instance of FXAlertButton.
- */
-- (void) addButton:(FXAlertButton *) button;
 
 @end

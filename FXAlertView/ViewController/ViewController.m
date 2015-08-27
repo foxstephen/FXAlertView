@@ -29,14 +29,12 @@
     [fxAlertView addButton:standardButton];
     [standardButton addTarget:self action:@selector(colour) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
     [self presentViewController:fxAlertView animated:YES completion:nil];
 }
 
 
 - (void) colour {
-    self.view.backgroundColor = [UIColor brownColor];
+    printf("Hello world.");
 }
 
 @end
