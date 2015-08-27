@@ -34,15 +34,9 @@
     [fxAlertView addButton:standardButton];
     
     
-    
     FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
     [cancelButton setTitle:@"Decline" forState:UIControlStateNormal];
     [fxAlertView addButton:cancelButton];
-
-    
-    
-
-
     
 }
 

@@ -30,6 +30,7 @@
 
 
 
+
 /**
  Sets the color of the alertView.
  
@@ -38,6 +39,8 @@
     HEX: FFFFFF
  */
 @property (strong, nonatomic) UIColor *defaultColour;
+
+
 
 
 /**
@@ -54,6 +57,8 @@
 @property (strong, nonatomic) UIColor *standardButtonColour;
 
 
+
+
 /**
  Use this property for quick setup
  of setting the colours of the cancel.
@@ -66,6 +71,8 @@
  HEX:
  */
 @property (strong, nonatomic) UIColor *cancelButtonColour;
+
+
 
 /**
  Use this property to change the font

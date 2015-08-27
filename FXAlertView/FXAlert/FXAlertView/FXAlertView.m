@@ -97,7 +97,7 @@ const NSString *cancelButtonKey = @"cancelButton";
                                                                          _alertView.frame.size.width,
                                                                          _alertView.frame.size.height - alertTitlePadding - buttonPadding)];
     
-    [_alertMessageTextView setFont: _font];
+    _alertMessageTextView.font = _font;
     _alertMessageTextView.text = self.messageText;
     _alertMessageTextView.selectable = NO;
     _alertMessageTextView.editable = NO;
@@ -124,13 +124,13 @@ const NSString *cancelButtonKey = @"cancelButton";
         self.buttons = [[NSMutableDictionary alloc] initWithCapacity:2];
     }
     
-    // If any of the properties this class
-    // allows for changing of the look
-    // of buttons have been changed
-    // set them up here.
+    // If any UIChanges for the buttons
+    // handled by this class have been
+    // custom set. Assign here.
     button.titleLabel.font = self.font;
     button.type == FXAlertButtonTypeStandard ?
         button.backgroundColor = self.standardButtonColour: self.cancelButtonColour;
+    
     
     if (button.type == FXAlertButtonTypeStandard) {
         
@@ -242,7 +242,7 @@ const NSString *cancelButtonKey = @"cancelButton";
     }
     
     // Change the cancel button font.
-    if(self.buttons[cancelButtonKey] != nil) {
+    if (self.buttons[cancelButtonKey] != nil) {
         FXAlertButton *button = (FXAlertButton *)self.buttons[cancelButtonKey];
         button.titleLabel.font = _font;
     }
@@ -253,10 +253,12 @@ const NSString *cancelButtonKey = @"cancelButton";
 
 
 
+
 - (void) setTitleFont:(UIFont *) titleFont {
     _titleFont = titleFont;
     self.alertTitleLabel.font = _titleFont;
 }
+
 
 
 - (void) setStandardButtonColour:(UIColor *)standardButtonColour {
@@ -269,6 +271,8 @@ const NSString *cancelButtonKey = @"cancelButton";
     
 }
 
+
+
 - (void) setCancelButtonColour:(UIColor *)cancelButtonColour {
     _cancelButtonColour = cancelButtonColour;
     
@@ -277,6 +281,8 @@ const NSString *cancelButtonKey = @"cancelButton";
         button.backgroundColor = _cancelButtonColour;
     }
 }
+
+
 
 
 
@@ -315,8 +321,8 @@ const NSString *cancelButtonKey = @"cancelButton";
         
         // Shrink the size of the alertMessageView
         // to fit inside the newly sized alertView.
-        self.alertMessageTextView.frame = CGRectMake(self.alertMessageTextView.frame.origin.x,
-                                                     self.alertMessageTextView.frame.origin.y,
+        self.alertMessageTextView.frame = CGRectMake(0,
+                                                     alertTitlePadding,
                                                      self.alertView.frame.size.width,
                                                      maxMessageHeight);
     }
@@ -327,6 +333,16 @@ const NSString *cancelButtonKey = @"cancelButton";
                                           self.alertView.frame.origin.y,
                                           self.alertView.frame.size.width,
                                           totalAlertViewHeight);
+        
+        
+        // Although the height doesn't need to be changed
+        // the width will need to be set back to the full
+        // width of the alertView as calling -sizeToFit
+        // will have descreased the size.
+        self.alertMessageTextView.frame = CGRectMake(0,
+                                                     alertTitlePadding,
+                                                     self.alertView.frame.size.width,
+                                                     self.alertMessageTextView.frame.size.height);
         
         // Turn scroll off for the messageTextView as
         // all its content can be shown
