@@ -9,12 +9,13 @@
 #import "FXAlertView.h"
 
 
-@interface FXAlertView () <UIViewControllerTransitioningDelegate>{
+@interface FXAlertView () < FXAlertButtonDelegate, UIViewControllerTransitioningDelegate>{
     CGFloat screenWidth;
     CGFloat screenHeight;
-    CGFloat buttonPadding;
-    CGFloat alertTitlePadding;
+    CGFloat buttonPadding; // The height required for the buttons to fit on the alert.
+    CGFloat alertTitlePadding; // The height required for the alert title label to fit on the alert.
 }
+
 
 @property (strong, nonatomic) UIView *alertView;
 @property (strong, nonatomic) UILabel *alertTitleLabel;
@@ -130,6 +131,7 @@ const NSString *cancelButtonKey = @"cancelButton";
     button.titleLabel.font = self.font;
     button.type == FXAlertButtonTypeStandard ?
         button.backgroundColor = self.standardButtonColour: self.cancelButtonColour;
+    button.delegate = self;
     
     
     if (button.type == FXAlertButtonTypeStandard) {
@@ -202,6 +204,12 @@ const NSString *cancelButtonKey = @"cancelButton";
 }
 
 
+- (void)fxAlertButton:(FXAlertButton *)button wasPressed:(BOOL)pressed {
+    if (pressed) {
+        
+    }
+}
+
 
 #pragma mark Rects for each kind of button.
 - (CGRect)singleButtonRect {
@@ -272,7 +280,6 @@ const NSString *cancelButtonKey = @"cancelButton";
 }
 
 
-
 - (void) setCancelButtonColour:(UIColor *)cancelButtonColour {
     _cancelButtonColour = cancelButtonColour;
     
@@ -291,9 +298,8 @@ const NSString *cancelButtonKey = @"cancelButton";
 // Sizes the alerts based on the alertTitle, alertMessageTextView and
 // the buttons on the alert.
 - (void) sizeAlert {
-    
+
     [self.alertMessageTextView sizeToFit];
-    
     
     // The max possible height the alert can be.
     CGFloat maxAlertHeight = screenHeight - 80;

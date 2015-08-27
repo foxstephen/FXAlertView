@@ -13,8 +13,17 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
     FXAlertButtonTypeCancel // This would be something like a cancel button.
 };
 
+@class FXAlertButton;
+
+@protocol FXAlertButtonDelegate <NSObject>
+
+- (void) fxAlertButton:(FXAlertButton *) button wasPressed:(BOOL) pressed;
+
+@end
 @interface FXAlertButton : UIButton
 
+
+@property (nonatomic, weak) id<FXAlertButtonDelegate> delegate;
 
 /**
  The button type of an instance.
