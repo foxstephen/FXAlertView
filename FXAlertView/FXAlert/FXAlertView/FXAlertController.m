@@ -201,7 +201,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     }
 }
 
-
+#pragma mark <FXAlertButtonDelegate>
 - (void)fxAlertButton:(FXAlertButton *)button wasPressed:(BOOL)pressed {
     if (pressed) {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -209,35 +209,25 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 }
 
 
-#pragma mark Rects for each kind of button.
-- (CGRect)singleButtonRect {
+#pragma mark <UIViewControllerTransitionDelegate>
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     
-    CGFloat buttonWidth = self.alertView.frame.size.width;
-    CGFloat buttonHeight = buttonPadding;
+    FXAlertViewTransitionAnimator *animator = [FXAlertViewTransitionAnimator new];
+    animator.presenting = YES;
+    return animator;
     
-    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
 
-- (CGRect)standardButtonRect {
-
-    CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
-    CGFloat buttonHeight = buttonPadding;
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     
-    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
-}
-
-
-- (CGRect)cancelButtonRect {
-    CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
-    CGFloat buttonHeight = buttonPadding;
-    
-    return CGRectMake(self.alertView.frame.size.width * 0.5, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+    FXAlertViewTransitionAnimator* animator = [FXAlertViewTransitionAnimator new];
+    animator.presenting = NO;
+    return animator;
 }
 
 
 
 #pragma Mutator methods
-
 - (void) setFont:(UIFont *)font {
     _font = font;
     
@@ -256,7 +246,6 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     // Change the alert message font.
     self.alertMessageTextView.font = _font;
 }
-
 
 
 
@@ -356,19 +345,32 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 }
 
 
-#pragma mark <UIViewControllerTransitionDelegate>
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+
+
+
+
+#pragma mark Rects for each kind of button.
+- (CGRect)singleButtonRect {
     
-    FXAlertViewTransitionAnimator *animator = [FXAlertViewTransitionAnimator new];
-    animator.presenting = YES;
-    return animator;
+    CGFloat buttonWidth = self.alertView.frame.size.width;
+    CGFloat buttonHeight = buttonPadding;
     
+    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+- (CGRect)standardButtonRect {
+    
+    CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
+    CGFloat buttonHeight = buttonPadding;
+    
+    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+}
 
-    FXAlertViewTransitionAnimator* animator = [FXAlertViewTransitionAnimator new];
-    animator.presenting = NO;
-    return animator;
+
+- (CGRect)cancelButtonRect {
+    CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
+    CGFloat buttonHeight = buttonPadding;
+    
+    return CGRectMake(self.alertView.frame.size.width * 0.5, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
 }
 @end

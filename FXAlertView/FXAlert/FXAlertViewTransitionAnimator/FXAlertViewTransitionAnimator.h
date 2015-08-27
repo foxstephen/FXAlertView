@@ -15,6 +15,12 @@
  */
 @interface FXAlertViewTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
+/**
+ This property will return whether the animator is currently animating or not.
+ 
+ @return YES - The animator currently animating its context.
+ @return NO - The animator is not animating its context.
+ */
 @property (assign, nonatomic, getter=isPresenting) __block BOOL presenting;
 
 @end

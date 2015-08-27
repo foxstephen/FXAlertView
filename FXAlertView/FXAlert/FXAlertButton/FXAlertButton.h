@@ -15,20 +15,27 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
 
 @class FXAlertButton;
 
+
 @protocol FXAlertButtonDelegate <NSObject>
 
+/** Messages the delegate, specifically FXAlertController when the user has pressed
+    a button with a TouchUpInside event.*/
 - (void) fxAlertButton:(FXAlertButton *) button wasPressed:(BOOL) pressed;
 
 @end
+
+
 @interface FXAlertButton : UIButton
 
 
 @property (nonatomic, weak) id<FXAlertButtonDelegate> delegate;
 
+
 /**
  The button type of an instance.
  */
 @property (nonatomic, readonly) FXAlertButtonType type;
+
 
 
 /**
@@ -39,13 +46,17 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
 - (instancetype) initWithType:(FXAlertButtonType) type;
 
 
+
 /**
  The standard button colour.
+ RGB: 31:199:99
  */
 + (UIColor *) standardColour;
 
+
 /**
  The cancel button colour.
+ RGB 204:204:204
  */
 + (UIColor *) cancelColour;
 @end

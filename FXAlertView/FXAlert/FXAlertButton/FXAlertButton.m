@@ -11,6 +11,7 @@
 
 @implementation FXAlertButton
 
+
 #pragma mark Object Life Cycle.
 - (instancetype) initWithType:(FXAlertButtonType) type {
     if (self = [super init]) {
@@ -36,7 +37,7 @@
 // As this class is a UIButton, -addTarget:action:forControlEvents: will be called
 // when an instance is tapped. Therefore we can't really manipulate that method and swap
 // out the selectors, to message the FXAlertView that a button has been tapped so
-// it can remove it from its parent view.
+// it can remove itself from its parent view.
 // This way is the alternative, make FXAlertView a delegate and forward button
 // taps through overriding this method.
 - (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -57,6 +58,7 @@
 
 #pragma Accessors for buttons colours.
 + (UIColor *)standardColour {
+
     return [UIColor colorWithRed:0.125 green:0.784 blue:0.392 alpha:1.0];
 }
 
