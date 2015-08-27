@@ -21,20 +21,22 @@
 
 
 - (IBAction)present:(id)sender {
-    FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"DISCLAIMER" message:@"Warning! You must accept the disclaimer before you proceed to conitinue. Do you accept?"];
+    FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"DISCLAIMER" message:@"Warning!"];
     
     
     FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
     [standardButton setTitle:@"Accept" forState:UIControlStateNormal];
     [fxAlertView addButton:standardButton];
+    [standardButton addTarget:self action:@selector(colour) forControlEvents:UIControlEventTouchUpInside];
     
     
-    FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
-    [cancelButton setTitle:@"Decline" forState:UIControlStateNormal];
-    [fxAlertView addButton:cancelButton];
     
     [self presentViewController:fxAlertView animated:YES completion:nil];
 }
 
+
+- (void) colour {
+    self.view.backgroundColor = [UIColor brownColor];
+}
 
 @end

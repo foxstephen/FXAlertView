@@ -48,8 +48,8 @@
 		186F836A1B8D2526006FF1CD /* FXAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertButton.h; sourceTree = "<group>"; };
 		186F836B1B8D2526006FF1CD /* FXAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertButton.m; sourceTree = "<group>"; };
 		186F836E1B8D2E10006FF1CD /* FXAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXAlert.h; sourceTree = "<group>"; };
-		18DB7BAD1B8F951E00A9993B /* FXAlertViewTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXAlertViewTransitionAnimator.h; path = FXAlertView/FXAlert/FXAlertViewTransitionAnimator.h; sourceTree = SOURCE_ROOT; };
-		18DB7BAE1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXAlertViewTransitionAnimator.m; path = FXAlertView/FXAlert/FXAlertViewTransitionAnimator.m; sourceTree = SOURCE_ROOT; };
+		18DB7BAD1B8F951E00A9993B /* FXAlertViewTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertViewTransitionAnimator.h; sourceTree = "<group>"; };
+		18DB7BAE1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertViewTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +91,10 @@
 		186F833F1B8D1839006FF1CD /* FXAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				186F83441B8D1839006FF1CD /* AppDelegate.h */,
-				186F83451B8D1839006FF1CD /* AppDelegate.m */,
-				186F83471B8D1839006FF1CD /* ViewController.h */,
-				186F83481B8D1839006FF1CD /* ViewController.m */,
-				18DB7BAC1B8F651200A9993B /* FXAlert */,
 				186F834A1B8D1839006FF1CD /* Main.storyboard */,
+				18DB7BB61B8FD19900A9993B /* AppDelegate */,
+				18DB7BB51B8FD19100A9993B /* ViewController */,
+				18DB7BAC1B8F651200A9993B /* FXAlert */,
 				186F834D1B8D1839006FF1CD /* Images.xcassets */,
 				186F834F1B8D1839006FF1CD /* LaunchScreen.xib */,
 				186F83401B8D1839006FF1CD /* Supporting Files */,
@@ -165,8 +163,25 @@
 				18DB7BAD1B8F951E00A9993B /* FXAlertViewTransitionAnimator.h */,
 				18DB7BAE1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m */,
 			);
-			name = FXAlertViewTransitionAnimator;
-			path = FXAlertButton;
+			path = FXAlertViewTransitionAnimator;
+			sourceTree = "<group>";
+		};
+		18DB7BB51B8FD19100A9993B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				186F83471B8D1839006FF1CD /* ViewController.h */,
+				186F83481B8D1839006FF1CD /* ViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		18DB7BB61B8FD19900A9993B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				186F83441B8D1839006FF1CD /* AppDelegate.h */,
+				186F83451B8D1839006FF1CD /* AppDelegate.m */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

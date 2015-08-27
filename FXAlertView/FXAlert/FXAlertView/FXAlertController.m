@@ -38,12 +38,12 @@ NSString *const FXStandardButtonKey = @"standardButton";
 NSString *const FXCancelButtonKey = @"cancelButton";
 
 
+
 #pragma mark Object Life Cycle.
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message {
     
     if (self = [super init]) {
         
-        self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         self.modalTransitionStyle = UIModalPresentationCustom;
         self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         self.transitioningDelegate = self;
@@ -56,7 +56,6 @@ NSString *const FXCancelButtonKey = @"cancelButton";
         // Set default attributes.
         _font = [UIFont fontWithName:@"Avenir Next" size:18];
         _titleFont = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
-        _defaultColour = [UIColor whiteColor];
         _standardButtonColour = [FXAlertButton standardColour];
         _cancelButtonColour = [FXAlertButton cancelColour];
         
@@ -78,7 +77,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     _alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth * 0.8, screenHeight * 0.52)];
     _alertView.layer.masksToBounds = YES;
     _alertView.layer.cornerRadius = 4.0;
-    _alertView.backgroundColor = _defaultColour;
+    _alertView.backgroundColor = [UIColor whiteColor];
     _alertView.center = self.view.center;
     [self.view addSubview:_alertView];
     

@@ -15,13 +15,10 @@
 
 - (void) animateTransition:(id<UIViewControllerContextTransitioning>) transitionContext {
     
-    // The destinationView controller will be an instance of FXAlertViewController
     UIViewController *destinationViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
     
-    
-
     
     if (self.isPresenting) {
         

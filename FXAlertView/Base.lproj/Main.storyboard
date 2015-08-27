@@ -16,15 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHi-2p-ZX4">
-                                <rect key="frame" x="37" y="83" width="527" height="451"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="200"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q1-3G-xgd">
-                                <rect key="frame" x="46" y="28" width="53" height="30"/>
-                                <state key="normal" title="Present">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q1-3G-xgd">
+                                <rect key="frame" x="232" y="282" width="146" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="Xby-KB-iMS"/>
+                                    <constraint firstAttribute="height" constant="35" id="mW1-FG-23B"/>
+                                </constraints>
+                                <state key="normal" title="Present Alert">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -33,6 +31,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="8Q1-3G-xgd" secondAttribute="centerX" constant="-5" id="2Qh-Z1-jyK"/>
+                            <constraint firstAttribute="centerX" secondItem="8Q1-3G-xgd" secondAttribute="centerX" constant="-5" id="Et8-f6-4Lj"/>
+                            <constraint firstAttribute="centerY" secondItem="8Q1-3G-xgd" secondAttribute="centerY" constant="0.5" id="Pp5-VU-DyH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
