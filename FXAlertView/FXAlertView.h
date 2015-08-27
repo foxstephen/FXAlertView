@@ -37,11 +37,20 @@
 
 
 /**
- Set this property to change the font
- of an instance, this will change the font for
- all of its subviews.
+ Use this property to change the font
+ of the message and buttons.
+ 
+ The default font is "Avenir Next", size:18
  */
 @property (strong, nonatomic) UIFont *font;
+
+/**
+ Use this propert to change the font
+ of the title on the alert.
+ 
+ The default font is "AvenirNext-DemiBold, size:20
+ */
+@property (strong, nonatomic) UIFont *titleFont;
 
 
 /**

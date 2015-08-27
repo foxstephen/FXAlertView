@@ -39,23 +39,26 @@ const NSString *cancelButtonKey = @"cancelButton";
 #pragma mark Object Life Cycle.
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message {
     
-    if(self = [super init]) {
+    if (self = [super init]) {
         
         self.modalTransitionStyle = UIModalPresentationCustom;
         self.transitioningDelegate = self;
         
         screenWidth = [[UIScreen mainScreen] bounds].size.width;
         screenHeight = [[UIScreen mainScreen] bounds].size.height;
-        
         buttonPadding = 60;
         alertTitlePadding = 60;
         
+        // Set default attributes.
+        _font = [UIFont fontWithName:@"Avenir Next" size:18];
+        _titleFont = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
         _defaultColour = [UIColor whiteColor];
         
-        self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         
         _titleText = title;
         _messageText = message;
+        
+        self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         
         [self setupAlertView];
         
@@ -83,7 +86,7 @@ const NSString *cancelButtonKey = @"cancelButton";
     _alertTitleLabel.text = self.titleText;
     _alertTitleLabel.textAlignment = NSTextAlignmentCenter;
     _alertTitleLabel.textColor = [UIColor grayColor];
-    _alertTitleLabel.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
+    _alertTitleLabel.font = _titleFont;
     [_alertView addSubview:_alertTitleLabel];
     
     
@@ -93,7 +96,7 @@ const NSString *cancelButtonKey = @"cancelButton";
                                                                          _alertView.frame.size.width,
                                                                          _alertView.frame.size.height - alertTitlePadding - buttonPadding)];
     
-    [_alertMessageTextView setFont: [UIFont fontWithName:@"Avenir Next" size:22]];
+    [_alertMessageTextView setFont: _font];
     _alertMessageTextView.text = self.messageText;
     _alertMessageTextView.selectable = NO;
     _alertMessageTextView.editable = NO;
@@ -114,12 +117,17 @@ const NSString *cancelButtonKey = @"cancelButton";
 
 
 
-
 - (void) addButton:(FXAlertButton*) button {
 
     if(!self.buttons) {
         self.buttons = [[NSMutableDictionary alloc] initWithCapacity:2];
     }
+    
+    // If any of the properties this class
+    // allows for changing of the look
+    // of buttons have been changed
+    // set them up here.
+    button.titleLabel.font = _font;
     
     if (button.type == FXAlertButtonTypeStandard) {
         
@@ -222,18 +230,33 @@ const NSString *cancelButtonKey = @"cancelButton";
 #pragma Mutator methods
 - (void)setFont:(UIFont *)font {
     _font = font;
-    [self updateSubViewsWithUIChanges];
-}
-
-
-- (void) updateSubViewsWithUIChanges {
     
+    // Change the standard button font.
+    if (self.buttons[standardButtonKey] != nil) {
+        FXAlertButton *button = (FXAlertButton *)self.buttons[standardButtonKey];
+        button.titleLabel.font = _font;
+    }
+    
+    // Change the cancel button font.
+    if(self.buttons[cancelButtonKey] != nil) {
+        FXAlertButton *button = (FXAlertButton *)self.buttons[cancelButtonKey];
+        button.titleLabel.font = _font;
+    }
+    
+    // Change the alert message font.
+    self.alertMessageTextView.font = _font;
 }
+
+
+
+- (void)setTitleFont:(UIFont *) titleFont {
+    _titleFont = titleFont;
+    self.alertTitleLabel.font = _titleFont;
+}
+
 
 
 #pragma Helper methods for sizing the alertView.
-
-
 
 // Sizes the alerts based on the alertTitle, alertMessageTextView and
 // the buttons on the alert.

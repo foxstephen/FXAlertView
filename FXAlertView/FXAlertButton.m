@@ -22,13 +22,7 @@
         }
         else if (_type == FXAlertButtonTypeCancel) {
             self.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
-//            self.backgroundColor = [UIColor colorWithRed:0.886 green:0.215 blue:0.215 alpha:1.0];
-            
         }
-
-        [self.titleLabel setFont:[UIFont fontWithName:@"Avenir Next" size:18]];
-        
-        
     }
     return self;
 }
