@@ -30,4 +30,13 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
 - (instancetype) initWithType:(FXAlertButtonType) type;
 
 
+/**
+ The standard button colour.
+ */
++ (UIColor *) standardColour;
+
+/**
+ The cancel button colour.
+ */
++ (UIColor *) cancelColour;
 @end

@@ -53,7 +53,8 @@ const NSString *cancelButtonKey = @"cancelButton";
         _font = [UIFont fontWithName:@"Avenir Next" size:18];
         _titleFont = [UIFont fontWithName:@"AvenirNext-DemiBold" size:20];
         _defaultColour = [UIColor whiteColor];
-        
+        _standardButtonColour = [FXAlertButton standardColour];
+        _cancelButtonColour = [FXAlertButton cancelColour];
         
         _titleText = title;
         _messageText = message;
@@ -127,7 +128,9 @@ const NSString *cancelButtonKey = @"cancelButton";
     // allows for changing of the look
     // of buttons have been changed
     // set them up here.
-    button.titleLabel.font = _font;
+    button.titleLabel.font = self.font;
+    button.type == FXAlertButtonTypeStandard ?
+        button.backgroundColor = self.standardButtonColour: self.cancelButtonColour;
     
     if (button.type == FXAlertButtonTypeStandard) {
         
@@ -228,7 +231,8 @@ const NSString *cancelButtonKey = @"cancelButton";
 
 
 #pragma Mutator methods
-- (void)setFont:(UIFont *)font {
+
+- (void) setFont:(UIFont *)font {
     _font = font;
     
     // Change the standard button font.
@@ -249,9 +253,29 @@ const NSString *cancelButtonKey = @"cancelButton";
 
 
 
-- (void)setTitleFont:(UIFont *) titleFont {
+- (void) setTitleFont:(UIFont *) titleFont {
     _titleFont = titleFont;
     self.alertTitleLabel.font = _titleFont;
+}
+
+
+- (void) setStandardButtonColour:(UIColor *)standardButtonColour {
+    _standardButtonColour = standardButtonColour;
+    
+    if (self.buttons[standardButtonKey] != nil) {
+        FXAlertButton* button = self.buttons[standardButtonKey];
+        button.backgroundColor = _standardButtonColour;
+    }
+    
+}
+
+- (void) setCancelButtonColour:(UIColor *)cancelButtonColour {
+    _cancelButtonColour = cancelButtonColour;
+    
+    if (self.buttons[cancelButtonKey] != nil) {
+        FXAlertButton* button = self.buttons[cancelButtonKey];
+        button.backgroundColor = _cancelButtonColour;
+    }
 }
 
 

@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "FXAlertButton.h"
 
+/**
+ A custom alert view.
+ */
 @interface FXAlertView : UIViewController
+
+
+
 
 /**
  Initialises a new instance with a title
@@ -24,8 +30,6 @@
 
 
 
-
-
 /**
  Sets the color of the alertView.
  
@@ -37,12 +41,41 @@
 
 
 /**
+ Use this property for quick setup
+ of setting the colours of the standardButton.
+ 
+ It is possible to change the colour of the button
+ by accessing the button itself. 
+ 
+ The default colour is:
+    RBG:
+    HEX:
+ */
+@property (strong, nonatomic) UIColor *standardButtonColour;
+
+
+/**
+ Use this property for quick setup
+ of setting the colours of the cancel.
+ 
+ It is possible to change the colour of the button
+ by accessing the button itself.
+ 
+ The default colour is:
+ RBG:
+ HEX:
+ */
+@property (strong, nonatomic) UIColor *cancelButtonColour;
+
+/**
  Use this property to change the font
  of the message and buttons.
  
  The default font is "Avenir Next", size:18
  */
 @property (strong, nonatomic) UIFont *font;
+
+
 
 /**
  Use this propert to change the font
@@ -51,6 +84,8 @@
  The default font is "AvenirNext-DemiBold, size:20
  */
 @property (strong, nonatomic) UIFont *titleFont;
+
+
 
 
 /**

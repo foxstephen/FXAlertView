@@ -25,17 +25,24 @@
     
     FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"DISCLAIMER" message:@"Warning! You must accept the disclaimer before you proceed to conitinue. Do you accept?"];
     
-    
     [self presentViewController:fxAlertView animated:YES completion:nil];
+    
+    
     
     FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
     [standardButton setTitle:@"Accept" forState:UIControlStateNormal];
     [fxAlertView addButton:standardButton];
     
     
+    
     FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
     [cancelButton setTitle:@"Decline" forState:UIControlStateNormal];
     [fxAlertView addButton:cancelButton];
+
+    
+    
+
+
     
 }
 
