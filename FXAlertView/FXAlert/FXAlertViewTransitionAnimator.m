@@ -15,13 +15,20 @@
 
 - (void) animateTransition:(id<UIViewControllerContextTransitioning>) transitionContext {
     
-    FXAlertController *destinationViewController = (FXAlertController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-
-    [transitionContext.containerView addSubview:destinationViewController.view];
-    destinationViewController.view.frame = CGRectOffset(destinationViewController.view.frame, 0, -300);
+    // The destinationView controller will be an instance of FXAlertViewController
+    UIViewController *destinationViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
+    
+    
 
     
     if (self.isPresenting) {
+        
+        [transitionContext.containerView addSubview:destinationViewController.view];
+        destinationViewController.view.frame = CGRectOffset(destinationViewController.view.frame, 0, -300);
+        
+        printf("Presenting!");
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0.0
              usingSpringWithDamping:0.5
@@ -31,19 +38,40 @@
                              destinationViewController.view.center = transitionContext.containerView.center;
                          }
                          completion:^(BOOL completed){
+                             
                              if (completed) {
                                  self.presenting = NO;
                                  [transitionContext completeTransition:YES];
                                  
                              }
-
                          }
          ];
+    }
+    else {
+        
+        printf("Dismissing!");
+        [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                              delay:0.0
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.4
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
+                             
+                             // Animate way off the screen.
+                             sourceViewController.view.frame = CGRectOffset(sourceViewController.view.frame, 0, 1000);
 
+                         }
+                         completion:^(BOOL completed){
+                             if (completed) {
+                                 [transitionContext completeTransition:YES];
+                             }
+                         }
+         ];
     }
     
     
 }
+
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return 0.5;

@@ -9,9 +9,6 @@
 #import "ViewController.h"
 #import "FXAlert.h"
 
-@interface ViewController ()
-
-@end
 
 @implementation ViewController
 

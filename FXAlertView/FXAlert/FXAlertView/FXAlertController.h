@@ -111,16 +111,4 @@
  */
 - (void) addButton:(FXAlertButton *) button;
 
-
-
-
-
-/**
- Calling this method will cause the receiver
- to be presented to the view hierarchy.
- 
- The presentation is animated and 
- will be added to the rootViewController.
- */
-- (void) present;
 @end

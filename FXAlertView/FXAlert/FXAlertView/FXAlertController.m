@@ -33,6 +33,7 @@
 
 @implementation FXAlertController
 
+// Keys for accessing each type of button.
 NSString *const FXStandardButtonKey = @"standardButton";
 NSString *const FXCancelButtonKey = @"cancelButton";
 
@@ -114,9 +115,6 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     _alertView.center = self.view.center;
 }
 
-- (void) present {
-    
-}
 
 
 
@@ -207,7 +205,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 
 - (void)fxAlertButton:(FXAlertButton *)button wasPressed:(BOOL)pressed {
     if (pressed) {
-        
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
@@ -366,5 +364,12 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     animator.presenting = YES;
     return animator;
     
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+
+    FXAlertViewTransitionAnimator* animator = [FXAlertViewTransitionAnimator new];
+    animator.presenting = NO;
+    return animator;
 }
 @end
