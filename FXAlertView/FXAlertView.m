@@ -242,8 +242,10 @@ const NSString *cancelButtonKey = @"cancelButton";
     [self.alertMessageTextView sizeToFit];
     
     
-    // The largest possible size the alert can be.
-    CGFloat maxAlertHeight = screenHeight - 60;
+    // The max possible height the alert can be.
+    CGFloat maxAlertHeight = screenHeight - 80;
+    
+    // The max possible height message can be.
     CGFloat maxMessageHeight = maxAlertHeight - buttonPadding - alertTitlePadding;
     
     // Used to determine whether the alert needs to be resize.
@@ -270,8 +272,6 @@ const NSString *cancelButtonKey = @"cancelButton";
                                                      self.alertMessageTextView.frame.origin.y,
                                                      self.alertView.frame.size.width,
                                                      maxMessageHeight);
-        
-        
     }
     else {
         
@@ -280,6 +280,11 @@ const NSString *cancelButtonKey = @"cancelButton";
                                           self.alertView.frame.origin.y,
                                           self.alertView.frame.size.width,
                                           totalAlertViewHeight);
+        
+        // Turn scroll off for the messageTextView as
+        // all its content can be shown
+        self.alertMessageTextView.scrollEnabled = NO;
+        
     }
 }
 

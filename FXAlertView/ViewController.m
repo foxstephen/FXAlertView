@@ -23,7 +23,7 @@
 
 - (void) present {
     
-    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"DISCLAIMER" message:@"This is a story about a man and a horse. Once there was a horse, this horse was the largest horse in the whole of the land. One day when this horse was out with its owner, they stumbled upon a tree. This tree was the largest tree in the wole of the land, and one day this tree was also out with its owner. His owner them stumbled across a horse. This horse was the larges thorse in the whole of the land. Whe nthis horse began to \"neigh\" the world stopped This is a story about a man and a horse. Once there was a horse, this horse was the largest horse in the whole of the land. One day when this horse was out with its owner, they stumbled upon a tree. This tree was the largest tree in the wole of the land, and one day this tree was also out with its owner. His owner them stumbled across a horse. This horse was the larges thorse in the whole of the land. Whe nthis horse began to \"neigh\" the world stopped"];
+    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"DISCLAIMER" message:@"Warning! You must accept the disclaimer before you proceed to conitinue. Do you accept?"];
     
     [self presentViewController:fxAlertView animated:YES completion:nil];
     
