@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Stephen Fox. All rights reserved.
 //
 
-#import "FXAlertView.h"
+#import "FXAlertController.h"
+#import "FXAlertViewTransitionAnimator.h"
 
-
-@interface FXAlertView () < FXAlertButtonDelegate, UIViewControllerTransitioningDelegate>{
+@interface FXAlertController () < FXAlertButtonDelegate, UIViewControllerTransitioningDelegate>{
     CGFloat screenWidth;
     CGFloat screenHeight;
     CGFloat buttonPadding; // The height required for the buttons to fit on the alert.
@@ -31,10 +31,10 @@
 
 @end
 
-@implementation FXAlertView
+@implementation FXAlertController
 
-const NSString *standardButtonKey = @"standardButton";
-const NSString *cancelButtonKey = @"cancelButton";
+NSString *const FXStandardButtonKey = @"standardButton";
+NSString *const FXCancelButtonKey = @"cancelButton";
 
 
 #pragma mark Object Life Cycle.
@@ -42,7 +42,9 @@ const NSString *cancelButtonKey = @"cancelButton";
     
     if (self = [super init]) {
         
+        self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         self.modalTransitionStyle = UIModalPresentationCustom;
+        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         self.transitioningDelegate = self;
         
         screenWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -59,9 +61,8 @@ const NSString *cancelButtonKey = @"cancelButton";
         
         _titleText = title;
         _messageText = message;
-        
-        self.view.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-        
+
+
         [self setupAlertView];
         
     }
@@ -138,15 +139,15 @@ const NSString *cancelButtonKey = @"cancelButton";
         
         // If there's already a "standard button" added, remove it
         // from superView and set to nil.
-        if (self.buttons[standardButtonKey]) {
+        if (self.buttons[FXStandardButtonKey]) {
 
-            FXAlertButton *button = self.buttons[standardButtonKey];
+            FXAlertButton *button = self.buttons[FXStandardButtonKey];
             [button removeFromSuperview];
             button = nil;
         }
         
         // Add the new button.
-        [self.buttons setObject:button forKey:standardButtonKey];
+        [self.buttons setObject:button forKey:FXStandardButtonKey];
 
         [self layoutButtons];
     }
@@ -154,14 +155,14 @@ const NSString *cancelButtonKey = @"cancelButton";
         
         // If there's already a "cancel button" added, remove it
         // from superView and set to nil.
-        if (self.buttons[cancelButtonKey]) {
-            FXAlertButton *button = self.buttons[cancelButtonKey];
+        if (self.buttons[FXCancelButtonKey]) {
+            FXAlertButton *button = self.buttons[FXCancelButtonKey];
             [button removeFromSuperview];
             button = nil;
         }
         
         // Add the new button.
-        [self.buttons setObject:button forKey:cancelButtonKey];
+        [self.buttons setObject:button forKey:FXCancelButtonKey];
         
         [self layoutButtons];
     }
@@ -174,29 +175,29 @@ const NSString *cancelButtonKey = @"cancelButton";
 - (void) layoutButtons {
     
     // We have both a cancel and standard button to layout.
-    if (self.buttons[standardButtonKey] && self.buttons[cancelButtonKey]) {
+    if (self.buttons[FXStandardButtonKey] && self.buttons[FXCancelButtonKey]) {
         
-        FXAlertButton *standardButton = self.buttons[standardButtonKey];
+        FXAlertButton *standardButton = self.buttons[FXStandardButtonKey];
         standardButton.frame = [self standardButtonRect];
         
-        FXAlertButton *cancelButton = self.buttons[cancelButtonKey];
+        FXAlertButton *cancelButton = self.buttons[FXCancelButtonKey];
         cancelButton.frame = [self cancelButtonRect];
         
         [self.alertView addSubview:standardButton];
         [self.alertView addSubview:cancelButton];
         
     }
-    else if (self.buttons[standardButtonKey]) { /* Standard button on its own */
+    else if (self.buttons[FXStandardButtonKey]) { /* Standard button on its own */
         
-        FXAlertButton *button = self.buttons[standardButtonKey];
+        FXAlertButton *button = self.buttons[FXStandardButtonKey];
         button.frame = [self singleButtonRect];
         
         [self.alertView addSubview: button];
         
     }
-    else if(self.buttons[cancelButtonKey]) { /* Cancel button on its own.*/
+    else if(self.buttons[FXCancelButtonKey]) { /* Cancel button on its own.*/
         
-        FXAlertButton *button = self.buttons[cancelButtonKey];
+        FXAlertButton *button = self.buttons[FXCancelButtonKey];
         button.frame = [self singleButtonRect];
         [self.alertView addSubview: button];
         
@@ -244,14 +245,14 @@ const NSString *cancelButtonKey = @"cancelButton";
     _font = font;
     
     // Change the standard button font.
-    if (self.buttons[standardButtonKey] != nil) {
-        FXAlertButton *button = (FXAlertButton *)self.buttons[standardButtonKey];
+    if (self.buttons[FXStandardButtonKey] != nil) {
+        FXAlertButton *button = (FXAlertButton *)self.buttons[FXStandardButtonKey];
         button.titleLabel.font = _font;
     }
     
     // Change the cancel button font.
-    if (self.buttons[cancelButtonKey] != nil) {
-        FXAlertButton *button = (FXAlertButton *)self.buttons[cancelButtonKey];
+    if (self.buttons[FXCancelButtonKey] != nil) {
+        FXAlertButton *button = (FXAlertButton *)self.buttons[FXCancelButtonKey];
         button.titleLabel.font = _font;
     }
     
@@ -272,8 +273,8 @@ const NSString *cancelButtonKey = @"cancelButton";
 - (void) setStandardButtonColour:(UIColor *)standardButtonColour {
     _standardButtonColour = standardButtonColour;
     
-    if (self.buttons[standardButtonKey] != nil) {
-        FXAlertButton* button = self.buttons[standardButtonKey];
+    if (self.buttons[FXStandardButtonKey] != nil) {
+        FXAlertButton* button = self.buttons[FXStandardButtonKey];
         button.backgroundColor = _standardButtonColour;
     }
     
@@ -283,8 +284,8 @@ const NSString *cancelButtonKey = @"cancelButton";
 - (void) setCancelButtonColour:(UIColor *)cancelButtonColour {
     _cancelButtonColour = cancelButtonColour;
     
-    if (self.buttons[cancelButtonKey] != nil) {
-        FXAlertButton* button = self.buttons[cancelButtonKey];
+    if (self.buttons[FXCancelButtonKey] != nil) {
+        FXAlertButton* button = self.buttons[FXCancelButtonKey];
         button.backgroundColor = _cancelButtonColour;
     }
 }
@@ -357,4 +358,13 @@ const NSString *cancelButtonKey = @"cancelButton";
     }
 }
 
+
+#pragma mark <UIViewControllerTransitionDelegate>
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    
+    FXAlertViewTransitionAnimator *animator = [FXAlertViewTransitionAnimator new];
+    animator.presenting = YES;
+    return animator;
+    
+}
 @end

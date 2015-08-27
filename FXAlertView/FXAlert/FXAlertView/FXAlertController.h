@@ -12,7 +12,7 @@
 /**
  A custom alert view.
  */
-@interface FXAlertView : UIViewController
+@interface FXAlertController : UIViewController
 
 
 

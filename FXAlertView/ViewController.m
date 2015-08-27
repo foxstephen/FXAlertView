@@ -16,17 +16,15 @@
 @implementation ViewController
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     [super viewDidAppear:animated];
-    [self present];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 
-- (void) present {
-    
-    FXAlertView *fxAlertView = [[FXAlertView alloc] initWithTitle:@"DISCLAIMER" message:@"Warning! You must accept the disclaimer before you proceed to conitinue. Do you accept?"];
-    
-    [self presentViewController:fxAlertView animated:YES completion:nil];
-    
+
+- (IBAction)present:(id)sender {
+    FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"DISCLAIMER" message:@"Warning! You must accept the disclaimer before you proceed to conitinue. Do you accept?"];
     
     
     FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
@@ -38,8 +36,8 @@
     [cancelButton setTitle:@"Decline" forState:UIControlStateNormal];
     [fxAlertView addButton:cancelButton];
     
+    [self presentViewController:fxAlertView animated:YES completion:nil];
 }
-
 
 
 @end

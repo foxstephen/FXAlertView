@@ -9,7 +9,7 @@
 #ifndef FXAlertView_FXAlert_h
 #define FXAlertView_FXAlert_h
 
-#import "FXAlertView.h"
+#import "FXAlertController.h"
 #import "FXAlertButton.h"
 
 #endif
