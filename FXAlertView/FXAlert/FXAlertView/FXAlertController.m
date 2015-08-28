@@ -328,6 +328,8 @@ NSString *const FXCancelButtonKey = @"cancelButton";
                                                      alertTitlePadding,
                                                      self.alertView.frame.size.width,
                                                      maxMessageHeight);
+        
+        [self.alertMessageTextView scrollRangeToVisible:NSMakeRange(0, 1)];
     }
     else {
         
@@ -350,6 +352,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
         // Turn scroll off for the messageTextView as
         // all its content can be shown
         self.alertMessageTextView.scrollEnabled = NO;
+        [self.alertMessageTextView scrollRangeToVisible:NSMakeRange(0, 1)];
         
     }
 }
