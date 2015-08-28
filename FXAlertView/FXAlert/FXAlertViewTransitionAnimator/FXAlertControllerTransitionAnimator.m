@@ -9,10 +9,15 @@
 #import "FXAlertControllerTransitionAnimator.h"
 #import "FXAlertController.h"
 
+@interface FXAlertControllerTransitionAnimator()
 
-@implementation FXAlertControllerTransitionAnimator {
-    UIColor *presentingViewBackgroundColour;
-}
+// Used to dim out the background view.
+@property (nonatomic, strong) UIView *dimmedView;
+
+@end
+
+@implementation FXAlertControllerTransitionAnimator
+
 
 #pragma Object Life Cycle.
 + (instancetype)sharedInstance {
@@ -27,25 +32,29 @@
 }
 
 
+
 #pragma mark <UIViewControllerAnimatedTransitioning>
 - (void) animateTransition:(id<UIViewControllerContextTransitioning>) transitionContext {
     
     UIViewController *destinationViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController *sourceViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     
-   
-    
+    // Lazily create the dimmedView instance
+    if(!self.dimmedView) {
+        self.dimmedView = [[UIView alloc] initWithFrame:sourceViewController.view.frame];
+        self.dimmedView.backgroundColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.5];
+    }
+
+
     if (self.isPresenting) {
         
-        // As the animation will change this,
-        presentingViewBackgroundColour = sourceViewController.view.backgroundColor;
         
         [transitionContext.containerView addSubview:destinationViewController.view];
         destinationViewController.view.frame = CGRectOffset(destinationViewController.view.frame, 0, -300);
         
-        // Change the source view controllers background colour when the alert is in the
-        // view hierarchy
-        sourceViewController.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:0.6];
+
+        // Added a dimmed view to the presenting UIViewController.
+        [sourceViewController.view addSubview:self.dimmedView];
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0.0
@@ -68,7 +77,10 @@
     }
     else {
         
-        destinationViewController.view.backgroundColor = presentingViewBackgroundColour;
+        // Remove the dimmed view we added earlier.
+        [self.dimmedView removeFromSuperview];
+        self.dimmedView = nil;
+        
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0.0
