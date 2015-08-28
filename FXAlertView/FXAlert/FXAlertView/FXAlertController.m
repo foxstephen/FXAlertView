@@ -7,7 +7,7 @@
 //
 
 #import "FXAlertController.h"
-#import "FXAlertViewTransitionAnimator.h"
+#import "FXAlertControllerTransitionAnimator.h"
 
 @interface FXAlertController () < FXAlertButtonDelegate, UIViewControllerTransitioningDelegate>{
     CGFloat screenWidth;
@@ -25,11 +25,14 @@
 @property (strong, nonatomic) NSString *titleText;
 @property (strong, nonatomic) NSString *messageText;
 
+
 @property (nonatomic, readonly) CGRect singleButtonRect; // Used if theres only one button on the view.
 @property (nonatomic, readonly) CGRect standardButtonRect; // Used if there's two buttons added to the view.
 @property (nonatomic, readonly) CGRect cancelButtonRect; // Used if there's two buttons added to the view.
 
 @end
+
+
 
 @implementation FXAlertController
 
@@ -212,7 +215,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 #pragma mark <UIViewControllerTransitionDelegate>
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     
-    FXAlertViewTransitionAnimator *animator = [FXAlertViewTransitionAnimator new];
+    FXAlertControllerTransitionAnimator *animator = [FXAlertControllerTransitionAnimator sharedInstance];
     animator.presenting = YES;
     return animator;
     
@@ -220,7 +223,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     
-    FXAlertViewTransitionAnimator* animator = [FXAlertViewTransitionAnimator new];
+    FXAlertControllerTransitionAnimator* animator = [FXAlertControllerTransitionAnimator sharedInstance];
     animator.presenting = NO;
     return animator;
 }

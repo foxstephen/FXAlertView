@@ -24,8 +24,8 @@
         else if (_type == FXAlertButtonTypeCancel) {
             self.backgroundColor = [FXAlertButton cancelColour];
         }
-        
         self.titleLabel.minimumScaleFactor = 0.5;
+        
     }
     return self;
 }

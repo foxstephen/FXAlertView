@@ -16,7 +16,7 @@
 		186F835D1B8D1839006FF1CD /* FXAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F835C1B8D1839006FF1CD /* FXAlertViewTests.m */; };
 		186F83681B8D1858006FF1CD /* FXAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83671B8D1858006FF1CD /* FXAlertController.m */; };
 		186F836C1B8D2526006FF1CD /* FXAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F836B1B8D2526006FF1CD /* FXAlertButton.m */; };
-		18DB7BAF1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7BAE1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m */; };
+		18DB7BAF1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7BAE1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +48,8 @@
 		186F836A1B8D2526006FF1CD /* FXAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertButton.h; sourceTree = "<group>"; };
 		186F836B1B8D2526006FF1CD /* FXAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertButton.m; sourceTree = "<group>"; };
 		186F836E1B8D2E10006FF1CD /* FXAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXAlert.h; sourceTree = "<group>"; };
-		18DB7BAD1B8F951E00A9993B /* FXAlertViewTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertViewTransitionAnimator.h; sourceTree = "<group>"; };
-		18DB7BAE1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertViewTransitionAnimator.m; sourceTree = "<group>"; };
+		18DB7BAD1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertControllerTransitionAnimator.h; sourceTree = "<group>"; };
+		18DB7BAE1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertControllerTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +160,8 @@
 		18DB7BB01B8F952200A9993B /* FXAlertViewTransitionAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				18DB7BAD1B8F951E00A9993B /* FXAlertViewTransitionAnimator.h */,
-				18DB7BAE1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m */,
+				18DB7BAD1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.h */,
+				18DB7BAE1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m */,
 			);
 			path = FXAlertViewTransitionAnimator;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				186F83491B8D1839006FF1CD /* ViewController.m in Sources */,
-				18DB7BAF1B8F951E00A9993B /* FXAlertViewTransitionAnimator.m in Sources */,
+				18DB7BAF1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m in Sources */,
 				186F83461B8D1839006FF1CD /* AppDelegate.m in Sources */,
 				186F83431B8D1839006FF1CD /* main.m in Sources */,
 				186F836C1B8D2526006FF1CD /* FXAlertButton.m in Sources */,
