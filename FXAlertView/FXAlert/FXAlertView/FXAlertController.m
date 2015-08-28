@@ -17,7 +17,8 @@
 }
 
 
-@property (strong, nonatomic) UIView *alertView;
+
+@property (strong, nonatomic, readonly) UIView *alertView;
 @property (strong, nonatomic) UILabel *alertTitleLabel;
 @property (strong, nonatomic) UITextView *alertMessageTextView;
 @property (strong, nonatomic) NSMutableDictionary *buttons;

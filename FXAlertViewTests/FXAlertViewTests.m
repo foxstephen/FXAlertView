@@ -26,7 +26,7 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testAlertController {
     
     UIFont *testFont = [UIFont fontWithName:@"Zapfino" size:20];
     UIColor *testColour = [UIColor redColor];
@@ -51,7 +51,7 @@
     XCTAssertNotNil(testButton, @"test Button failed initialisation");
     
     XCTAssertEqual(testButton.type, FXAlertButtonTypeStandard);
-    
+
     
     XCTAssertEqualObjects([FXAlertButton standardColour], [UIColor colorWithRed:0.125 green:0.784 blue:0.392 alpha:1.0]);
     XCTAssertEqualObjects([FXAlertButton cancelColour], [UIColor colorWithWhite:0.8 alpha:1.0]);
@@ -62,9 +62,13 @@
     XCTAssertEqualObjects(testButton.backgroundColor, testColour);
 
     
-
+    FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
+    XCTAssertNotNil(cancelButton, @"Cancel button failed initialisation");
+    
+    XCTAssertEqual(cancelButton.type, FXAlertButtonTypeCancel);
     
 }
+
 
 
 @end
