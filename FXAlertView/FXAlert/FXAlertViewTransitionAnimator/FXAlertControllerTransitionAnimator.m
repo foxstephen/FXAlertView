@@ -53,7 +53,7 @@
         destinationViewController.view.frame = CGRectOffset(destinationViewController.view.frame, 0, -300);
         
 
-        // Added a dimmed view to the presenting UIViewController.
+        // Add a dimmed view to the presenting UIViewController.
         [sourceViewController.view addSubview:self.dimmedView];
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext]

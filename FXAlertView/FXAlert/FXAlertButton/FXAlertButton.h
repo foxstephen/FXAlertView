@@ -19,7 +19,8 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
 @protocol FXAlertButtonDelegate <NSObject>
 
 /** Messages the delegate, specifically FXAlertController when the user has pressed
-    a button with a TouchUpInside event.*/
+    a button with a TouchUpInside event.
+ */
 - (void) fxAlertButton:(FXAlertButton *) button wasPressed:(BOOL) pressed;
 
 @end

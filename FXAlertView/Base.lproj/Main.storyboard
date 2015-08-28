@@ -29,9 +29,6 @@
                                     <action selector="present:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dnB-LF-Y9t"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2015-08-28 at 01.34.12.png" translatesAutoresizingMaskIntoConstraints="NO" id="wWy-EO-7hl">
-                                <rect key="frame" x="0.0" y="83" width="561" height="600"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,7 +42,4 @@
             </objects>
         </scene>
     </scenes>
-    <resources>
-        <image name="Screen Shot 2015-08-28 at 01.34.12.png" width="806" height="584"/>
-    </resources>
 </document>

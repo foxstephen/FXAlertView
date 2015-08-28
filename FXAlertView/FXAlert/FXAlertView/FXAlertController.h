@@ -14,11 +14,9 @@
  and UIAlertView. This class alows for a title, message and a maximum,
  of two buttons. Customise each button like you would any UIButton instance.
  Use FXAlertController's custom method's to set the colour/ font
- of message, title or each button.
+ of the message, title or each button subview.
  */
 @interface FXAlertController : UIViewController
-
-
 
 
 /**
