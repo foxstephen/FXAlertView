@@ -12,8 +12,10 @@
 @interface FXAlertController () < FXAlertButtonDelegate, UIViewControllerTransitioningDelegate>{
     CGFloat screenWidth;
     CGFloat screenHeight;
-    CGFloat buttonPadding; // The height required for the buttons to fit on the alert.
-    CGFloat alertTitlePadding; // The height required for the alert title label to fit on the alert.
+    CGFloat buttonPadding; // The padding required for the buttons to fit on the alert.
+    CGFloat alertTitlePadding; // The padding required for the alert title label to fit on the alert.
+    CGFloat buttonHeight;
+    CGFloat alertTitleHeight;
 }
 
 
@@ -54,8 +56,12 @@ NSString *const FXCancelButtonKey = @"cancelButton";
         
         screenWidth = [[UIScreen mainScreen] bounds].size.width;
         screenHeight = [[UIScreen mainScreen] bounds].size.height;
+        
+        buttonHeight = 60;
+        alertTitleHeight = 60;
+        
         buttonPadding = 60;
-        alertTitlePadding = 60;
+        alertTitlePadding = 50;
         
         // Set default attributes.
         _font = [UIFont fontWithName:@"Avenir Next" size:18];
@@ -89,7 +95,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     _alertTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
                                                             0,
                                                             _alertView.frame.size.width,
-                                                            alertTitlePadding)];
+                                                            alertTitleHeight)];
     _alertTitleLabel.text = self.titleText;
     _alertTitleLabel.textAlignment = NSTextAlignmentCenter;
     _alertTitleLabel.textColor = [UIColor grayColor];
@@ -357,24 +363,24 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 - (CGRect)singleButtonRect {
     
     CGFloat buttonWidth = self.alertView.frame.size.width;
-    CGFloat buttonHeight = buttonPadding;
+    CGFloat height = buttonHeight;
     
-    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+    return CGRectMake(0, self.alertView.frame.size.height - height, buttonWidth, height);
 }
 
 - (CGRect)standardButtonRect {
     
     CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
-    CGFloat buttonHeight = buttonPadding;
+    CGFloat height = buttonHeight;
     
-    return CGRectMake(0, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+    return CGRectMake(0, self.alertView.frame.size.height - height, buttonWidth, height);
 }
 
 
 - (CGRect)cancelButtonRect {
     CGFloat buttonWidth = self.alertView.frame.size.width * 0.5;
-    CGFloat buttonHeight = buttonPadding;
+    CGFloat height = buttonHeight;
     
-    return CGRectMake(self.alertView.frame.size.width * 0.5, self.alertView.frame.size.height - buttonHeight, buttonWidth, buttonHeight);
+    return CGRectMake(self.alertView.frame.size.width * 0.5, self.alertView.frame.size.height - height, buttonWidth, height);
 }
 @end
