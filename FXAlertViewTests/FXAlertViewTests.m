@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "FXAlert.h"
 
 @interface FXAlertViewTests : XCTestCase
 
@@ -17,7 +18,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+ 
 }
 
 - (void)tearDown {
@@ -26,15 +27,44 @@
 }
 
 - (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    
+    UIFont *testFont = [UIFont fontWithName:@"Zapfino" size:20];
+    UIColor *testColour = [UIColor redColor];
+    
+    FXAlertController *testAlert = [[FXAlertController alloc ]initWithTitle:@"Test" message:@"This is a test"];
+    XCTAssertNotNil(testAlert, @"testAlert failed initialisation.");
+    
+    testAlert.font = testFont;
+    XCTAssertEqualObjects(testAlert.font, testFont);
+    
+    testAlert.titleFont = testFont;
+    XCTAssertEqualObjects(testAlert.titleFont, testFont);
+    
+    testAlert.standardButtonColour = testColour;
+    XCTAssertEqualObjects(testAlert.standardButtonColour, testColour);
+    
+    testAlert.cancelButtonColour = testColour;
+    XCTAssertEqualObjects(testAlert.cancelButtonColour, testColour);
+    
+    
+    FXAlertButton *testButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
+    XCTAssertNotNil(testButton, @"test Button failed initialisation");
+    
+    XCTAssertEqual(testButton.type, FXAlertButtonTypeStandard);
+    
+    
+    XCTAssertEqualObjects([FXAlertButton standardColour], [UIColor colorWithRed:0.125 green:0.784 blue:0.392 alpha:1.0]);
+    XCTAssertEqualObjects([FXAlertButton cancelColour], [UIColor colorWithWhite:0.8 alpha:1.0]);
+    
+    [testAlert addButton:testButton];
+    
+    XCTAssertEqualObjects(testButton.titleLabel.font, testFont);
+    XCTAssertEqualObjects(testButton.backgroundColor, testColour);
+
+    
+
+    
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end
