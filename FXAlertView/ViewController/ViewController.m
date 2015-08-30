@@ -36,6 +36,18 @@
     [self presentViewController:fxAlertView animated:YES completion:nil];
 }
 
+- (IBAction)presentAlertTwo:(id)sender {
+    
+    FXAlertController *fxAlert = [[FXAlertController alloc] initWithTitle:@"Title two" message:@"This is another message"];
+    
+    FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
+    [standardButton setTitle:@"Accept" forState:UIControlStateNormal];
+    
+    [fxAlert addButton:standardButton];
+    
+    [self presentViewController:fxAlert animated:YES completion:nil];
+}
+
 
 - (void) colour {
     printf("Hello world.");
