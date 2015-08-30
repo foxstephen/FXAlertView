@@ -39,9 +39,11 @@ Once setup add the button to the alert as follows
 [fxAlertView addButton:standardButton];
 ```
 Standard Button
+
 ![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Assets/StandardButton.png)
 
 Cancel Button
+
 ![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Assets/CancelButton.png)
 
 
