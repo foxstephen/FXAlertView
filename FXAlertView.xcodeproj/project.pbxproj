@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1859DE551B93B27600430766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1859DE541B93B27600430766 /* Main.storyboard */; };
 		186F83431B8D1839006FF1CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83421B8D1839006FF1CD /* main.m */; };
 		186F83461B8D1839006FF1CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83451B8D1839006FF1CD /* AppDelegate.m */; };
 		186F83491B8D1839006FF1CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83481B8D1839006FF1CD /* ViewController.m */; };
-		186F834C1B8D1839006FF1CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186F834A1B8D1839006FF1CD /* Main.storyboard */; };
 		186F834E1B8D1839006FF1CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 186F834D1B8D1839006FF1CD /* Images.xcassets */; };
 		186F83511B8D1839006FF1CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186F834F1B8D1839006FF1CD /* LaunchScreen.xib */; };
 		186F835D1B8D1839006FF1CD /* FXAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F835C1B8D1839006FF1CD /* FXAlertViewTests.m */; };
@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1859DE541B93B27600430766 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = AppDelegate/Main.storyboard; sourceTree = "<group>"; };
 		186F833D1B8D1839006FF1CD /* FXAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FXAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186F83411B8D1839006FF1CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		186F83421B8D1839006FF1CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		186F83451B8D1839006FF1CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		186F83471B8D1839006FF1CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		186F83481B8D1839006FF1CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		186F834B1B8D1839006FF1CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		186F834D1B8D1839006FF1CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		186F83501B8D1839006FF1CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		186F83561B8D1839006FF1CD /* FXAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FXAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +91,7 @@
 		186F833F1B8D1839006FF1CD /* FXAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				186F834A1B8D1839006FF1CD /* Main.storyboard */,
+				1859DE541B93B27600430766 /* Main.storyboard */,
 				18DB7BB61B8FD19900A9993B /* AppDelegate */,
 				18DB7BB51B8FD19100A9993B /* ViewController */,
 				18DB7BAC1B8F651200A9993B /* FXAlert */,
@@ -264,7 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				186F834C1B8D1839006FF1CD /* Main.storyboard in Resources */,
+				1859DE551B93B27600430766 /* Main.storyboard in Resources */,
 				186F83511B8D1839006FF1CD /* LaunchScreen.xib in Resources */,
 				186F834E1B8D1839006FF1CD /* Images.xcassets in Resources */,
 			);
@@ -312,15 +312,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		186F834A1B8D1839006FF1CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				186F834B1B8D1839006FF1CD /* Base */,
-			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 		186F834F1B8D1839006FF1CD /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

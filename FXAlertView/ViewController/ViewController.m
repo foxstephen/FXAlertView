@@ -21,36 +21,21 @@
 
 
 - (IBAction)present:(id)sender {
-    FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"DISCLAIMER" message:@"Warning, for you to conitinue using this service you will need to accept the disclaimer. Do you accept?"];
+    
+    FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"ALERT" message:@"This is a cool alert, isn't it?"];
     
     FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
-    [standardButton setTitle:@"Accept" forState:UIControlStateNormal];
+    [standardButton setTitle:@"Sure is!" forState:UIControlStateNormal];
     [fxAlertView addButton:standardButton];
-    [standardButton addTarget:self action:@selector(colour) forControlEvents:UIControlEventTouchUpInside];
+    [standardButton addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
     
     
     FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
-    [cancelButton setTitle:@"Decline" forState:UIControlStateNormal];
+    [cancelButton setTitle:@"Nah" forState:UIControlStateNormal];
     [fxAlertView addButton:cancelButton];
     
     [self presentViewController:fxAlertView animated:YES completion:nil];
 }
 
-- (IBAction)presentAlertTwo:(id)sender {
-    
-    FXAlertController *fxAlert = [[FXAlertController alloc] initWithTitle:@"Title two" message:@"This is another message"];
-    
-    FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
-    [standardButton setTitle:@"Accept" forState:UIControlStateNormal];
-    
-    [fxAlert addButton:standardButton];
-    
-    [self presentViewController:fxAlert animated:YES completion:nil];
-}
-
-
-- (void) colour {
-    printf("Hello world.");
-}
 
 @end
