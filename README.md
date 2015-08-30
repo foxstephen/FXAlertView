@@ -6,7 +6,8 @@ An alernative alert to the native iOS UIAlertController and UIAlertView.
 
 #Usage
 Maker sure to import the header file `FXAlert.h`. To make an alert create an instance of `FXAlertController`.
-```FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"ALERT" message:@"This is a cool alert, isn't it?"];```
+```
+FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"ALERT" message:@"This is a cool alert, isn't it?"];```
 
 
 #FXAlertButton
