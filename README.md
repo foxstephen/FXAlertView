@@ -2,7 +2,7 @@
 An alernative alert to the native iOS UIAlertController and UIAlertView.
 
 # Screenshot
-![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Screen%20Shot%202015-08-30%20at%2023.17.28.png)
+![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Assets/Screenshot.png)
 
 #Usage
 Maker sure to import the header file `FXAlert.h`. To make an alert create an instance of `FXAlertController`.
@@ -38,6 +38,11 @@ Once setup add the button to the alert as follows
 ```
 [fxAlertView addButton:standardButton];
 ```
+Standard Button
+![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Assets/StandardButton.png)
+
+Cancel Button
+![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Assets/CancelButton.png)
 
 
 #Presenting FXAlertController
