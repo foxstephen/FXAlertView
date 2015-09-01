@@ -1,4 +1,4 @@
-# FXAlertView-iOS
+# FXAlertView
 An alernative alert to the native iOS UIAlertController and UIAlertView.
 
 # Screenshot
