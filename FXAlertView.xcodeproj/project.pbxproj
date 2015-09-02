@@ -16,6 +16,7 @@
 		186F835D1B8D1839006FF1CD /* FXAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F835C1B8D1839006FF1CD /* FXAlertViewTests.m */; };
 		186F83681B8D1858006FF1CD /* FXAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F83671B8D1858006FF1CD /* FXAlertController.m */; };
 		186F836C1B8D2526006FF1CD /* FXAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 186F836B1B8D2526006FF1CD /* FXAlertButton.m */; };
+		189AAE461B95EDD10014F8EB /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189AAE451B95EDD10014F8EB /* Reveal.framework */; };
 		18DB7BAF1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB7BAE1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		186F836A1B8D2526006FF1CD /* FXAlertButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertButton.h; sourceTree = "<group>"; };
 		186F836B1B8D2526006FF1CD /* FXAlertButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertButton.m; sourceTree = "<group>"; };
 		186F836E1B8D2E10006FF1CD /* FXAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXAlert.h; sourceTree = "<group>"; };
+		189AAE451B95EDD10014F8EB /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = FXAlert/FXAlertView/Reveal.framework; sourceTree = "<group>"; };
 		18DB7BAD1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXAlertControllerTransitionAnimator.h; sourceTree = "<group>"; };
 		18DB7BAE1B8F951E00A9993B /* FXAlertControllerTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXAlertControllerTransitionAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189AAE461B95EDD10014F8EB /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +100,7 @@
 				18DB7BAC1B8F651200A9993B /* FXAlert */,
 				186F834D1B8D1839006FF1CD /* Images.xcassets */,
 				186F834F1B8D1839006FF1CD /* LaunchScreen.xib */,
+				189AAE451B95EDD10014F8EB /* Reveal.framework */,
 				186F83401B8D1839006FF1CD /* Supporting Files */,
 			);
 			path = FXAlertView;
@@ -408,8 +412,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FXAlertView/FXAlert/FXAlertView",
+				);
 				INFOPLIST_FILE = "FXAlertView/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -418,8 +433,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FXAlertView/FXAlert/FXAlertView",
+				);
 				INFOPLIST_FILE = "FXAlertView/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -33,6 +33,7 @@
 @property (nonatomic, readonly) CGRect standardButtonRect; // Used if there's two buttons added to the view.
 @property (nonatomic, readonly) CGRect cancelButtonRect; // Used if there's two buttons added to the view.
 
+@property (nonatomic, strong) UIView *dimmedView; //Adds transparent layer behind the alert.
 @end
 
 
@@ -50,8 +51,8 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     
     if (self = [super init]) {
         
-        self.modalTransitionStyle = UIModalPresentationCustom;
-        self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
         self.transitioningDelegate = self;
         
         screenWidth = [[UIScreen mainScreen] bounds].size.width;
@@ -222,6 +223,15 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 #pragma mark <UIViewControllerTransitionDelegate>
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     
+    if(!self.dimmedView) {
+        self.dimmedView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+        self.dimmedView.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
+        [self.view addSubview:self.dimmedView];
+        
+        UIViewController *rootViewController = [[UIApplication sharedApplication] delegate].window.rootViewController;
+        [rootViewController.view addSubview:self.dimmedView];
+    }
+    
     FXAlertControllerTransitionAnimator *animator = [FXAlertControllerTransitionAnimator sharedInstance];
     animator.presenting = YES;
     return animator;
@@ -232,6 +242,9 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     
     FXAlertControllerTransitionAnimator* animator = [FXAlertControllerTransitionAnimator sharedInstance];
     animator.presenting = NO;
+    
+    [self.dimmedView removeFromSuperview];
+    self.dimmedView = nil;
     return animator;
 }
 
