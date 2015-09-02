@@ -18,8 +18,6 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
 			<key>path</key>
 			<string>Main.storyboard</string>
 			<key>sourceTree</key>
@@ -126,6 +124,7 @@
 				<string>186F83431B8D1839006FF1CD</string>
 				<string>186F836C1B8D2526006FF1CD</string>
 				<string>186F83681B8D1858006FF1CD</string>
+				<string>18F41B6C1B979AD9002EE186</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -137,9 +136,7 @@
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
-			<array>
-				<string>189AAE461B95EDD10014F8EB</string>
-			</array>
+			<array/>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
@@ -222,7 +219,6 @@
 				<string>18DB7BAC1B8F651200A9993B</string>
 				<string>186F834D1B8D1839006FF1CD</string>
 				<string>186F834F1B8D1839006FF1CD</string>
-				<string>189AAE451B95EDD10014F8EB</string>
 				<string>186F83401B8D1839006FF1CD</string>
 			</array>
 			<key>isa</key>
@@ -724,12 +720,7 @@
 				<key>LD_RUNPATH_SEARCH_PATHS</key>
 				<string>$(inherited) @executable_path/Frameworks</string>
 				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>-ObjC</string>
-					<string>-lz</string>
-					<string>-framework</string>
-					<string>Reveal</string>
-				</array>
+				<string></string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 			</dict>
@@ -756,12 +747,7 @@
 				<key>LD_RUNPATH_SEARCH_PATHS</key>
 				<string>$(inherited) @executable_path/Frameworks</string>
 				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>-ObjC</string>
-					<string>-lz</string>
-					<string>-framework</string>
-					<string>Reveal</string>
-				</array>
+				<string></string>
 				<key>PRODUCT_NAME</key>
 				<string>$(TARGET_NAME)</string>
 			</dict>
@@ -944,26 +930,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>189AAE451B95EDD10014F8EB</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Reveal.framework</string>
-			<key>path</key>
-			<string>FXAlert/FXAlertView/Reveal.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>189AAE461B95EDD10014F8EB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>189AAE451B95EDD10014F8EB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>18DB7BAC1B8F651200A9993B</key>
 		<dict>
 			<key>children</key>
@@ -971,6 +937,7 @@
 				<string>186F836E1B8D2E10006FF1CD</string>
 				<string>186F83691B8D1B80006FF1CD</string>
 				<string>18DB7BB01B8F952200A9993B</string>
+				<string>18F41B6D1B979ADE002EE186</string>
 				<string>186F836D1B8D257C006FF1CD</string>
 			</array>
 			<key>isa</key>
@@ -1052,6 +1019,59 @@
 			<string>PBXGroup</string>
 			<key>path</key>
 			<string>AppDelegate</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>18F41B6A1B979AD9002EE186</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FXPresentationController.h</string>
+			<key>path</key>
+			<string>FXPresentationController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>18F41B6B1B979AD9002EE186</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FXPresentationController.m</string>
+			<key>path</key>
+			<string>FXPresentationController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>18F41B6C1B979AD9002EE186</key>
+		<dict>
+			<key>fileRef</key>
+			<string>18F41B6B1B979AD9002EE186</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>18F41B6D1B979ADE002EE186</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>18F41B6A1B979AD9002EE186</string>
+				<string>18F41B6B1B979AD9002EE186</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>FXPresentationController</string>
+			<key>path</key>
+			<string>FXPresentationController</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
