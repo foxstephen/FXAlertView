@@ -238,7 +238,7 @@ NSString *const FXCancelButtonKey = @"cancelButton";
 
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source {
     
-    printf("called");
+
     FXPresentationController *fxPresentationController = [[FXPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
     
     return fxPresentationController;
