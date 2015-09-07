@@ -265,6 +265,9 @@ NSString *const FXCancelButtonKey = @"cancelButton";
     
     // Change the alert message font.
     self.alertMessageTextView.font = _font;
+    
+    // Size the alert with the new font changes.
+    [self sizeAlert];
 }
 
 
