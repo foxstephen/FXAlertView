@@ -46,6 +46,8 @@ Cancel Button
 
 ![alt tag](https://github.com/StephenFox1995/FXAlertView-iOS/blob/master/Assets/CancelButton.png)
 
+Both Buttons
+![alt tag](https://github.com/StephenFox1995/FXAlertView/blob/master/Assets/Screen%20Shot%202015-09-11%20at%2001.05.42.png)
 
 #Presenting FXAlertController
 To present an alert just call `-presentViewController:animated:completion:` like you would to present any other UIViewController.
