@@ -24,11 +24,15 @@
     
     FXAlertController *fxAlertView = [[FXAlertController alloc] initWithTitle:@"ALERT" message:@"This is a cool alert, isn't it?"];
     
-    FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
-    [standardButton setTitle:@"Nah" forState:UIControlStateNormal];
+    FXAlertButton *standardButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeStandard];
+    [standardButton setTitle:@"Sure is!" forState:UIControlStateNormal];
     [fxAlertView addButton:standardButton];
     [standardButton addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
     
+    FXAlertButton *cancelButton = [[FXAlertButton alloc] initWithType:FXAlertButtonTypeCancel];
+    [cancelButton setTitle:@"Nah" forState:UIControlStateNormal];
+    [fxAlertView addButton:cancelButton];
+    [standardButton addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
     
     [self presentViewController:fxAlertView animated:YES completion:nil];
 }
