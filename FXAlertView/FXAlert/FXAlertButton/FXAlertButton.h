@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
-    FXAlertButtonTypeStandard, // This would be something like an okay button.
-    FXAlertButtonTypeCancel // This would be something like a cancel button.
+  FXAlertButtonTypeStandard, // This would be something like an okay button.
+  FXAlertButtonTypeCancel // This would be something like a cancel button.
 };
 
 @class FXAlertButton;
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, FXAlertButtonType) {
 @protocol FXAlertButtonDelegate <NSObject>
 
 /** Messages the delegate, specifically FXAlertController when the user has pressed
-    a button with a TouchUpInside event.
+ a button with a TouchUpInside event.
  */
 - (void) fxAlertButton:(FXAlertButton *) button wasPressed:(BOOL) pressed;
 

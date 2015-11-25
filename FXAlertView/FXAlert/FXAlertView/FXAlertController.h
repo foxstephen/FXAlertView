@@ -22,6 +22,7 @@
  @param title   The title of the alert.
  @param message The message of the alert.
  
+ 
  @return New instance
  */
 - (instancetype) initWithTitle:(NSString *) title message:(NSString *) message;
@@ -52,11 +53,11 @@
  of setting the colours of the standardButton.
  
  It is possible to change the colour of the button
- by accessing the button itself. 
+ by accessing the button itself.
  
  The default colour is:
-    RBG:
-    HEX:
+ RBG:
+ HEX:
  */
 @property (strong, nonatomic) UIColor *standardButtonColour;
 

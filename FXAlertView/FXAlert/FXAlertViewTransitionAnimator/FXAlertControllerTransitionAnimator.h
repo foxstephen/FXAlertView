@@ -17,18 +17,18 @@
 
 
 /**
- It is advised to used the shareInstance instead of creatng your 
- own instance as specific state is captured when 
- FXAlertControllerTransitionAnimator animates an FXAlertController in the 
- view hierarchy. 
+ It is advised to used the shareInstance instead of creatng your
+ own instance as specific state is captured when
+ FXAlertControllerTransitionAnimator animates an FXAlertController in the
+ view hierarchy.
  
  When the FXAlertControllerTransitionAnimator is messaged
- to dismiss the FXAlertController this state is dealt 
+ to dismiss the FXAlertController this state is dealt
  with appropriately. e.g. any views that have been altered or
  changed for the animation of the FXAlertController.
  
  Not using the sharedInstance may leave inconsistent state
- for any view in the view hierarchy who have been involoved 
+ for any view in the view hierarchy who have been involoved
  in animation.
  */
 + (instancetype) sharedInstance;

@@ -14,20 +14,20 @@
 
 #pragma mark Object Life Cycle.
 - (instancetype) initWithType:(FXAlertButtonType) type {
-    if (self = [super init]) {
-        
-        _type = type;
-        
-        if (_type == FXAlertButtonTypeStandard) {
-            self.backgroundColor = [FXAlertButton standardColour];
-        }
-        else if (_type == FXAlertButtonTypeCancel) {
-            self.backgroundColor = [FXAlertButton cancelColour];
-        }
-        self.titleLabel.minimumScaleFactor = 0.5;
-        
+  if (self = [super init]) {
+    
+    _type = type;
+    
+    if (_type == FXAlertButtonTypeStandard) {
+      self.backgroundColor = [FXAlertButton standardColour];
     }
-    return self;
+    else if (_type == FXAlertButtonTypeCancel) {
+      self.backgroundColor = [FXAlertButton cancelColour];
+    }
+    self.titleLabel.minimumScaleFactor = 0.5;
+    
+  }
+  return self;
 }
 
 
@@ -41,29 +41,28 @@
 // This way is the alternative, make FXAlertView a delegate and forward button
 // taps through overriding this method.
 - (void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
-    [super endTrackingWithTouch:touch withEvent:event];
-    
-    if (self.isTouchInside) {
-        if(self.delegate != nil && [self.delegate respondsToSelector:@selector(fxAlertButton:wasPressed:)]) {
-            [self.delegate fxAlertButton:self wasPressed:YES];
-        }
-    } else {
-        if(self.delegate != nil && [self.delegate respondsToSelector:@selector(fxAlertButton:wasPressed:)]) {
-            [self.delegate fxAlertButton:self wasPressed:NO];
-        }
+  [super endTrackingWithTouch:touch withEvent:event];
+  
+  if (self.isTouchInside) {
+    if(self.delegate != nil && [self.delegate respondsToSelector:@selector(fxAlertButton:wasPressed:)]) {
+      [self.delegate fxAlertButton:self wasPressed:YES];
     }
+  } else {
+    if(self.delegate != nil && [self.delegate respondsToSelector:@selector(fxAlertButton:wasPressed:)]) {
+      [self.delegate fxAlertButton:self wasPressed:NO];
+    }
+  }
 }
 
 
 
 #pragma Accessors for buttons colours.
 + (UIColor *)standardColour {
-
-    return [UIColor colorWithRed:0.125 green:0.784 blue:0.392 alpha:1.0];
+  return [UIColor colorWithRed:0.125 green:0.784 blue:0.392 alpha:1.0];
 }
 
 + (UIColor *)cancelColour {
-    return [UIColor colorWithWhite:0.8 alpha:1.0];
+  return [UIColor colorWithWhite:0.8 alpha:1.0];
 }
 
 @end
